@@ -56,7 +56,9 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="CvDbContext.cs" />
+    <Compile Include="Models\ApplicationUserProject.cs" />
     <Compile Include="Models\Cv.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -29,6 +29,10 @@ namespace Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<ApplicationUserProject> applicationUserProjects { get; set; }
+        public DbSet<Cv> Cvs { get; set; }
+
+        public DbSet<Project> Projekt { get; set; }
 
         public static ApplicationDbContext Create()
         {

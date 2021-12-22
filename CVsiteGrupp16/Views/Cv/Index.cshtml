@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Data.Models.Cv>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kompetens)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utbildning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Erfarenhet)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kompetens)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Utbildning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Erfarenhet)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ApplicationUserId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ApplicationUserId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ApplicationUserId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Contexts;
 using Data.Models;
 using Microsoft.AspNet.Identity;
 using System;
@@ -11,6 +12,8 @@ namespace CVsiteGrupp16.Controllers
 {
     public class ProjectController : Controller
     {
+        private ProjectDbContext db = new ProjectDbContext();
+
         // GET: Project
         public ActionResult Index()
         {
@@ -91,7 +94,9 @@ namespace CVsiteGrupp16.Controllers
         // GET: Project/Delete/5
         public ActionResult Delete(int id)
         {
+      
             return View();
+            
         }
 
         // POST: Project/Delete/5
@@ -100,7 +105,7 @@ namespace CVsiteGrupp16.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+             
 
                 return RedirectToAction("Index");
             }

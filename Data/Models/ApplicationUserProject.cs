@@ -13,7 +13,7 @@ namespace Data.Models
         [Key, ForeignKey("ApplicationUser")]
         public string ApplicationUserId { get; set; }
         public int ProjectId { get; set; }
-        public virtual Project project { get; set; }
+        public virtual Project Project { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
 
 

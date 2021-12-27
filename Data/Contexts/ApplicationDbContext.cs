@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Data.Models;
@@ -14,6 +15,9 @@ namespace Data
         public string Adress { get; set; }
         public bool PrivatKonto { get; set; }
         public virtual Cv Cv { get; set; }
+        public virtual ICollection <Project> Projects { get; set; }
+
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

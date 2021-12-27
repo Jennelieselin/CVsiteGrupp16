@@ -4,7 +4,9 @@ using Data.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -68,34 +70,43 @@ namespace CVsiteGrupp16.Controllers
                 return View();
             }
         }
-
-        // GET: Project/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Project projektEdit = db.projects.Find(id);
+            if (projektEdit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(projektEdit);
         }
 
-        // POST: Project/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit([Bind(Include = "Id,Projektnamn,Beskrivning")] Project project)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(project).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(project);
+
+
         }
 
         // GET: Project/Delete/5
         public ActionResult Delete(int id)
         {
-      
-            return View();
+            using (var context = new ApplicationDbContext())
+            {
+                return View(context.Projekt.Where(x => x.Id == id).FirstOrDefault());
+            }
+
+            
             
         }
 
@@ -103,14 +114,21 @@ namespace CVsiteGrupp16.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
+        
             try
             {
-             
+                using (var context = new ApplicationDbContext())
+                {
+                    Project projekt = context.Projekt.Where(x => x.Id == id).FirstOrDefault();
+                    context.Projekt.Remove(projekt);
+                    context.SaveChanges();
 
+                }
                 return RedirectToAction("Index");
             }
             catch
             {
+               
                 return View();
             }
         }

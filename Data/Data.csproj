@@ -68,6 +68,14 @@
     <Compile Include="Migrations\202112221504388_addedProject.designer.cs">
       <DependentUpon>202112221504388_addedProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112271350395_hej.cs" />
+    <Compile Include="Migrations\202112271350395_hej.designer.cs">
+      <DependentUpon>202112271350395_hej.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112271627262_cv-added.cs" />
+    <Compile Include="Migrations\202112271627262_cv-added.designer.cs">
+      <DependentUpon>202112271627262_cv-added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUserProject.cs" />
     <Compile Include="Models\Cv.cs" />
@@ -84,6 +92,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112221504388_addedProject.resx">
       <DependentUpon>202112221504388_addedProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112271350395_hej.resx">
+      <DependentUpon>202112271350395_hej.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112271627262_cv-added.resx">
+      <DependentUpon>202112271627262_cv-added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

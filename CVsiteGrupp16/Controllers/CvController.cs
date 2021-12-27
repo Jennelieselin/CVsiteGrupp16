@@ -1,5 +1,6 @@
 ﻿using Data;
 using Data.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace CVsiteGrupp16.Controllers
 {
     public class CvController : Controller
     {
+        private CvDbContext db = new CvDbContext();
         // GET: Cv
         public ActionResult Index()
         {
@@ -39,8 +41,9 @@ namespace CVsiteGrupp16.Controllers
         {
             try
             {
-                using (var context = new CvDbContext())
+                using (var context = new ApplicationDbContext())
                 {
+                    var currentUser = User.Identity.GetUserId();
                     var newCv = new Cv()
                     {
                         Kompetens = model.Kompetens,

@@ -70,7 +70,7 @@ namespace CVsiteGrupp16.Controllers
                 return View();
             }
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -85,17 +85,26 @@ namespace CVsiteGrupp16.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "Id,Projektnamn,Beskrivning")] Project project)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Project project)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(project).State = EntityState.Modified;
+                var currentProject = db.projects.FirstOrDefault(x => x.Id == project.Id);
+                if (currentProject == null)
+                {
+                    return HttpNotFound();
+                }
+
+                currentProject.Namn = project.Namn;
+                currentProject.Beskrivning = project.Beskrivning;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(project);
-
-
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Project/Delete/5

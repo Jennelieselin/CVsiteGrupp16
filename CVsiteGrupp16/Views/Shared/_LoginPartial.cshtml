@@ -5,12 +5,24 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li>
+        @Html.ActionLink("Inkorg (Olästa 3)", "Index", "Message", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li>
+        @Html.ActionLink("Redigera CV", "Index", "Cv",  routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li>
+        @Html.ActionLink("Mina Projekt", "Index", "Project", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li>
+        @Html.ActionLink("Redigera Profil", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+</ul>
     }
 }
 else

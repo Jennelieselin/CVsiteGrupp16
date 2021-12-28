@@ -16,6 +16,13 @@ namespace CVsiteGrupp16.Controllers
     {
         private ProjectDbContext db = new ProjectDbContext();
 
+        public ActionResult UserIndex()
+        {
+            //var projects = context.projects.Where(row => row.UserName == User.Identity.Name);
+            var projects = db.projects.ToList();
+            return View(projects);
+        }
+
         // GET: Project
         public ActionResult Index()
         {
@@ -63,7 +70,7 @@ namespace CVsiteGrupp16.Controllers
                 context.SaveChanges();
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("UserView");
             }
             catch
             {
@@ -99,7 +106,7 @@ namespace CVsiteGrupp16.Controllers
                 currentProject.Namn = project.Namn;
                 currentProject.Beskrivning = project.Beskrivning;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("UserView");
             }
             catch
             {
@@ -133,7 +140,7 @@ namespace CVsiteGrupp16.Controllers
                     context.SaveChanges();
 
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("UserView");
             }
             catch
             {

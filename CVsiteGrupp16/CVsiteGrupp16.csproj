@@ -245,6 +245,7 @@
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Project\Edit.cshtml" />
     <Content Include="Views\Project\Delete.cshtml" />
+    <Content Include="Views\Project\UserView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadedImages\" />

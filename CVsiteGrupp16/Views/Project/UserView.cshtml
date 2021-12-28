@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Data.Models.Project>
+
+@{
+    ViewBag.Title = "UserView";
+}
+
+<h2>Mina projekt</h2>
+
+<p>
+    @Html.ActionLink("Skapa nytt", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Namn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Beskrivning)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Namn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Beskrivning)
+        </td>
+        <td>
+            @Html.ActionLink("Ändra", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Ta bort", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

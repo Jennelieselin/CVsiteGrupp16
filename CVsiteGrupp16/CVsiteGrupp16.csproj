@@ -258,6 +258,7 @@
     <Content Include="Views\Message\Create.cshtml" />
     <Content Include="Views\Message\Delete.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadedImages\" />

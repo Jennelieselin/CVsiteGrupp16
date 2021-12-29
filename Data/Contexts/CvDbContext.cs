@@ -10,9 +10,8 @@ namespace Data
 {
     public class CvDbContext : DbContext 
     {
-        public CvDbContext() : base ("DefaultConnection")
-        { 
-        }
+        public CvDbContext() : base ("DefaultConnection") { }
+        
 
 
          public DbSet<Cv> Cvs { get; set; }

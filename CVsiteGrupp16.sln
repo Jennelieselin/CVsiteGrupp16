@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVsiteGrupp16", "CVsiteGrup
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{6857E743-0ABA-4C22-902E-F68443250892}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{06A0CBF3-506E-4C55-950C-543BE63F1A1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{EA981C20-9686-4748-BA5A-21BF6BC28567}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{6857E743-0ABA-4C22-902E-F68443250892}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6857E743-0ABA-4C22-902E-F68443250892}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6857E743-0ABA-4C22-902E-F68443250892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06A0CBF3-506E-4C55-950C-543BE63F1A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A0CBF3-506E-4C55-950C-543BE63F1A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06A0CBF3-506E-4C55-950C-543BE63F1A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06A0CBF3-506E-4C55-950C-543BE63F1A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA981C20-9686-4748-BA5A-21BF6BC28567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA981C20-9686-4748-BA5A-21BF6BC28567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA981C20-9686-4748-BA5A-21BF6BC28567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA981C20-9686-4748-BA5A-21BF6BC28567}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

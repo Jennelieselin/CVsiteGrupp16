@@ -23,6 +23,8 @@ namespace CVsiteGrupp16.Controllers
             
         }
 
+
+
         // GET: Cv/Details/5
         public ActionResult Details(int id)
         {

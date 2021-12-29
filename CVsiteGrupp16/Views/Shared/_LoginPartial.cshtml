@@ -3,14 +3,14 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
 
 <ul class="nav navbar-nav navbar-right">
     <li>
         @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
     <li>
-        @Html.ActionLink("Inkorg (Olästa 3)", "Index", "Message", routeValues: null, htmlAttributes: new { title = "Manage" })
+        @Html.ActionLink("Inkorg", "Index", "Message", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
     <li>
         @Html.ActionLink("Redigera CV", "Index", "Cv",  routeValues: null, htmlAttributes: new { title = "Manage" })
@@ -21,14 +21,29 @@
     <li>
         @Html.ActionLink("Redigera Profil", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
-    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Logga ut</a></li>
 </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Registrera", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Logga in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    <li>@Html.ActionLink("Registrera", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li>@Html.ActionLink("Logga in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+</ul>
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            setInterval(function () {
+                var count;
+                $.get('/api/message/countmessages/', function (result) {
+                    count = result;
+                    $("#resultCount").html("(Olästa: " + count + ")");
+                })
+            }, 3000);
+        })
+    </script>
+
 }

@@ -12,6 +12,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using CVsiteGrupp16.Models;
 using Data;
+using Data.Contexts;
 
 namespace CVsiteGrupp16
 {

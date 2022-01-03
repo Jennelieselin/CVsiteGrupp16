@@ -5,7 +5,7 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Data.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Data.Contexts.ApplicationDbContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@
             ContextKey = "Data.ApplicationDbContext";
         }
 
-        protected override void Seed(Data.ApplicationDbContext context)
+        protected override void Seed(Data.Contexts.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

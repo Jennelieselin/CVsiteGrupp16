@@ -2,6 +2,8 @@
 using Data.Contexts;
 using Data.Models;
 using Microsoft.AspNet.Identity;
+using Services;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -15,24 +17,37 @@ namespace CVsiteGrupp16.Controllers
     public class ProjectController : Controller
     {
         private ProjectDbContext db = new ProjectDbContext();
+        private ProjectService ProjectService = new ProjectService(System.Web.HttpContext.Current);
 
-        public ActionResult UserIndex()
+        public ActionResult UserView()
         {
-            //var projects = context.projects.Where(row => row.UserName == User.Identity.Name);
-            var projects = db.projects.ToList();
+            // var projects = context.projects.Where(row => row.UserName == User.Identity.Name);
+            var projects = db.projects.Where(row => row.Användarnamn == User.Identity.Name);
             return View(projects);
         }
 
-        // GET: Project
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    using (var context = new ApplicationDbContext())
+        //    {
+        //        var projekt = context.Projekt.ToList();
+        //        return View(projekt);
+        //    }
+
+        //}
+
+        //// GET: Project
+        public ActionResult Index(string searchString)
         {
-            using (var context = new ApplicationDbContext())
+            var projekt = from p in db.projects select p;
+            if (!String.IsNullOrEmpty(searchString))
             {
-                var projekt = context.Projekt.ToList();
-                return View(projekt);
+                projekt = projekt.Where(row => row.Namn.Contains(searchString));
             }
-           
+            return View(projekt);
         }
+
+
 
         // GET: Project/Details/5
         public ActionResult Details(int id)
@@ -47,36 +62,20 @@ namespace CVsiteGrupp16.Controllers
         }
 
         // POST: Project/Create
-        [HttpPost]
-        public ActionResult Create(Project projekt)
-        {
-            try
-            {
-                using (var context = new ApplicationDbContext())
-                {
-                    var newProject = new Project()
-                    {
-                        Namn = projekt.Namn,
-                        Beskrivning = projekt.Beskrivning,
-                    };
-                    context.Projekt.Add(newProject);
-                    context.SaveChanges();
-                    var UserProjekt = new ApplicationUserProject()
-                    {
-                        ApplicationUserId = User.Identity.GetUserId(),
-                    ProjectId = newProject.Id,
-                    };
-                context.applicationUserProjects.Add(UserProjekt);
-                context.SaveChanges();
-                }
-
-                return RedirectToAction("UserView");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //[HttpPost]
+        //public ActionResult Create(ProjectModel projektModel)
+        //{
+        //    try
+        //    {
+        //        Project nyttProjekt = ProjectSerive.CreateProject(ProjectModel, User.Identity.Name);
+        //        UsersInProjectsService.CreateUserInProject(newProject.ID, User.Identity.GetUserId(), User.Identity.Name);
+        //        return RedirectToAction("UserView");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -97,15 +96,7 @@ namespace CVsiteGrupp16.Controllers
         {
             try
             {
-                var currentProject = db.projects.FirstOrDefault(x => x.Id == project.Id);
-                if (currentProject == null)
-                {
-                    return HttpNotFound();
-                }
-
-                currentProject.Namn = project.Namn;
-                currentProject.Beskrivning = project.Beskrivning;
-                db.SaveChanges();
+                ProjectService.EditProjekt(project);
                 return RedirectToAction("UserView");
             }
             catch
@@ -115,38 +106,41 @@ namespace CVsiteGrupp16.Controllers
         }
 
         // GET: Project/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            using (var context = new ApplicationDbContext())
+            if (id == null)
             {
-                return View(context.Projekt.Where(x => x.Id == id).FirstOrDefault());
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
+            Project existerandeProjekt = db.projects.Find(id);
+            if (existerandeProjekt == null)
+            {
+                return HttpNotFound();
+            }
+            return View(existerandeProjekt);
 
-            
-            
+
         }
 
         // POST: Project/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-        
-            try
-            {
-                using (var context = new ApplicationDbContext())
-                {
-                    Project projekt = context.Projekt.Where(x => x.Id == id).FirstOrDefault();
-                    context.Projekt.Remove(projekt);
-                    context.SaveChanges();
+        //    [HttpPost, ActionName("Delete")]
+        //    [ValidateAntiForgeryToken]
+        //    public ActionResult Delete(int id, FormCollection collection)
+        //    {
 
-                }
-                return RedirectToAction("UserView");
-            }
-            catch
-            {
-               
-                return View();
-            }
-        }
+        //        try
+        //        {
+        //            ProjectService.DeleteProject(id);
+        //            UsersInProjectService.DeleteUsersInProjects(id);
+
+        //            return RedirectToAction("UserView");
+        //        }
+        //        catch
+        //        {
+
+        //            return View();
+        //        }
+        //    }
+        //}
     }
 }

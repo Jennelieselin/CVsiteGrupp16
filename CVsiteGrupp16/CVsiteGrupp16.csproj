@@ -175,7 +175,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CvController.cs" />
+    <Compile Include="Controllers\CvProfilController.cs" />
+    <Compile Include="Controllers\ErfarenhetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageAPIController.cs" />
@@ -247,21 +248,23 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Cv\Create.cshtml" />
     <Content Include="Views\Project\Create.cshtml" />
-    <Content Include="Views\Cv\Index.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Project\Edit.cshtml" />
     <Content Include="Views\Project\Delete.cshtml" />
     <Content Include="Views\Project\UserView.cshtml" />
-    <Content Include="Views\Cv\SearchIndexs.cshtml" />
     <Content Include="Views\Message\Create.cshtml" />
     <Content Include="Views\Message\Delete.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Erfarenhet\Delete.cshtml" />
+    <Content Include="Views\Erfarenhet\Edit.cshtml" />
+    <Content Include="Views\Erfarenhet\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadedImages\" />
+    <Folder Include="Views\CvProfil\" />
+    <Folder Include="Views\Cv\" />
     <Folder Include="Views\MessageAPI\" />
     <Folder Include="Views\Search\" />
   </ItemGroup>

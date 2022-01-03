@@ -1,0 +1,40 @@
+﻿@model Data.Models.Erfarenhet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Vill du ta bort denna erfarenhet?</h3>
+<div>
+    <h4>Erfarenhet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Namn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Namn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CvId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CvId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Radera" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka till CV", "Index", "Cv")
+        </div>
+    }
+</div>

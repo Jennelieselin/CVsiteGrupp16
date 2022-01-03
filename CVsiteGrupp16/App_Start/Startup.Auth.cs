@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using CVsiteGrupp16.Models;
 using Data;
+using Data.Contexts;
 
 namespace CVsiteGrupp16
 {

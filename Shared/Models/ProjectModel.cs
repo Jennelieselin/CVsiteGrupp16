@@ -5,16 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Models
+namespace Shared.Models
 {
-    public class Project
+    public class ProjectModel
     {
         [Key]
-        public int Id { get; set; }
+        [Display(Name ="Projekt")]
         public string Namn { get; set; }
+
+        [Display(Name ="Beskrivning")]
         public string Beskrivning { get; set; }
-        public string Användarnamn { get; set; }
+
+        [Display(Name ="Datum")]
         public DateTime Datum { get; set; }
-       // public virtual ICollection<ApplicationUser> UserInProject { get; set; }
+
     }
 }

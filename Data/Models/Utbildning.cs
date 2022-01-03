@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    public class Project
+    public class Utbildning
     {
         [Key]
         public int Id { get; set; }
+        [Required]
+        [Display(Name = "Utbildning")]
         public string Namn { get; set; }
-        public string Beskrivning { get; set; }
-        public string Användarnamn { get; set; }
-        public DateTime Datum { get; set; }
-       // public virtual ICollection<ApplicationUser> UserInProject { get; set; }
+        [Required]
+        public int CvId { get; set; }
+
     }
 }

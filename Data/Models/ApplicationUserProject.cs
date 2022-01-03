@@ -17,7 +17,7 @@ namespace Data.Models
         [Required]
         public string UserId { get; set; }
         [Required]
-        public string Användarnamn { get; set; }
+        public string Username{ get; set; }
 
 
     }

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Data.Models.CvProfil>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Användare i projektet</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Namn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Namn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @if (item.ImagePath != null)
+                {
+                    var imagePath = "/UploadedImages/" + item.ImagePath;
+            <img src="@imagePath" style="max-width: 100px; max-height: 120px" />
+                }
+        <td>
+            @Html.ActionLink("Visa CV", "Index", new { id=item.Id }) |
+
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<div>
+    @Html.ActionLink("Tillbaka", null, null, null, new { href = Request.UrlReferrer })
+</div>

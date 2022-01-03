@@ -5,16 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Models
+namespace Shared.Models
 {
-    public class Project
+    public class UtbildningModel
     {
-        [Key]
         public int Id { get; set; }
+        [Required]
         public string Namn { get; set; }
-        public string Beskrivning { get; set; }
-        public string Username { get; set; }
-        public DateTime Datum { get; set; }
-       
+        [Required]
+        public int CvId { get; set; }
+
     }
 }

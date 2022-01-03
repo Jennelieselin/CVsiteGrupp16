@@ -1,0 +1,50 @@
+﻿@model Shared.Models.CvEditImg
+
+@{
+    ViewBag.Title = "EditImg";
+}
+
+<h2>Ändra din bild</h2>
+
+@using (Html.BeginForm("EditImg", "Cv", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @{ var imagepath = "/UploadedImages/" + @Model.CurrentPath; }
+            <img src="@imagepath" alt="Lägg till bild" style="width: 100px; height: 130px;" />
+            <br />
+            @Html.ValidationMessageFor(model => model.CurrentPath, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="file" name="Image" value="Välj bild" accept="image/*" />
+        </div>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Spara" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Tillbaka till mitt CV", "Index")
+</div>
+
+

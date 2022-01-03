@@ -10,40 +10,40 @@ using System.Web.Mvc;
 
 namespace CVsiteGrupp16.Controllers
 {
-    public class ErfarenhetController : Controller
+    public class KompetensController : Controller
     {
         private CvDbContext db = new CvDbContext();
 
-        private ErfarenhetService erfarenhetService = new ErfarenhetService();
+        private KompetensService kompetensService = new KompetensService();
 
-        // GET: Erfarenhet
+        // GET: Kompetens
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Erfarenhet/Details/5
+        // GET: Kompetens/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Erfarenhet/Create
+        // GET: Kompetens/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Erfarenhet/Create
+        // POST: Kompetens/Create
         [HttpPost]
-        public ActionResult Create(ErfarenhetModel model)
+        public ActionResult Create(KompetensModel model)
         {
             try
             {
                 var cv = db.cvs.Where(row => row.Username == User.Identity.Name).FirstOrDefault();
-                erfarenhetService.CreateErfarenhet(model, cv.Id);
+                kompetensService.CreateKompetens(model, cv.Id);
 
-                return RedirectToAction("Index", "CV");
+                return RedirectToAction("Index", "Cv");
             }
             catch
             {
@@ -51,23 +51,23 @@ namespace CVsiteGrupp16.Controllers
             }
         }
 
-        // GET: Erfarenhet/Edit/5
+        // GET: Kompetens/Edit/5
         public ActionResult Edit(int id)
         {
-            Erfarenhet inlagdErfarenhet = db.erfarenheter.Find(id);
-            return View(inlagdErfarenhet);
+            Kompetens inlagdKompetens = db.kompetens.Find(id);
+            return View(inlagdKompetens);
         }
 
-        // POST: Erfarenhet/Edit/5
+        // POST: Kompetens/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Erfarenhet model)
+        public ActionResult Edit(Kompetens model)
         {
             try
             {
-                erfarenhetService.UpdateErfarenhet(model);
+                kompetensService.UpdateKompetens(model);
 
-                return RedirectToAction("Index", "CV");
+                return RedirectToAction("Index", "Cv");
             }
             catch
             {
@@ -75,24 +75,24 @@ namespace CVsiteGrupp16.Controllers
             }
         }
 
-        // GET: Erfarenhet/Delete/5
+        // GET: Kompetens/Delete/5
         public ActionResult Delete(int id)
         {
-            Erfarenhet inlagdErfarenhet = db.erfarenheter.Find(id);
-            return View(inlagdErfarenhet);
+            Kompetens inlagdKompetens = db.kompetens.Find(id);
+            return View(inlagdKompetens);
         }
 
-        // POST: Erfarenhet/Delete/5
+        // POST: Kompetens/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Erfarenhet model)
+        public ActionResult Delete(int id, Kompetens model)
         {
             try
             {
-                Erfarenhet erfarenhet = db.erfarenheter.Find(id);
-                db.erfarenheter.Remove(erfarenhet);
+                Kompetens kompetens = db.kompetens.Find(id);
+                db.kompetens.Remove(kompetens);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "CV");
+                return RedirectToAction("Index", "Cv");
             }
             catch
             {

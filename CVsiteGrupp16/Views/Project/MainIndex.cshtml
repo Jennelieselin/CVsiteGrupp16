@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Data.Models.Project>
 
 @{
-    ViewBag.Title = "UserView";
+    ViewBag.Title = "MainIndex";
 }
 
-<h2>Mina projekt</h2>
+<h2>Alla projekt som finns</h2>
 
 <p>
-    @Html.ActionLink("Skapa nytt", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -16,6 +16,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Beskrivning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
         </th>
         <th></th>
     </tr>
@@ -29,8 +32,10 @@
             @Html.DisplayFor(modelItem => item.Beskrivning)
         </td>
         <td>
-            @Html.ActionLink("Ändra", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Ta bort", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.ActionLink("Se vilka som är med i projektet", "Index", "UsersInProjects", new { projectId = item.Id }, null)
         </td>
     </tr>
 }

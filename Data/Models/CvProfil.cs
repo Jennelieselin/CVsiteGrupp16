@@ -13,7 +13,7 @@ namespace Data.Models
         public int Id { get; set; }
         public string Namn { get; set; }
         public string Adress { get; set; }
-        public string Användarnamn { get; set; }
+        public string Username { get; set; }
         public string ImagePath { get; set; }
         public bool Privat { get; set; }
     }

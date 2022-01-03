@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using Data.Contexts;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(CVsiteGrupp16.Startup))]
@@ -9,6 +10,8 @@ namespace CVsiteGrupp16
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
+            app.CreatePerOwinContext(() => new MessageDbContext());
         }
     }
 }

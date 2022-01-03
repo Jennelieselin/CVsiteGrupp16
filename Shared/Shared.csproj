@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,10 +44,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Models\CvProfilModel.cs" />
     <Compile Include="Models\ErfarenhetModel.cs" />
+    <Compile Include="Models\KompetensModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\ProjectModel.cs" />
+    <Compile Include="Models\StartModel.cs" />
+    <Compile Include="Models\UserProjectModel.cs" />
+    <Compile Include="Models\UsersProjectModel.cs" />
+    <Compile Include="Models\UtbildningModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{6857E743-0ABA-4C22-902E-F68443250892}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

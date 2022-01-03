@@ -10,40 +10,41 @@ using System.Web.Mvc;
 
 namespace CVsiteGrupp16.Controllers
 {
-    public class ErfarenhetController : Controller
+    public class UtbildningController : Controller
     {
+
         private CvDbContext db = new CvDbContext();
 
-        private ErfarenhetService erfarenhetService = new ErfarenhetService();
+        private UtbildningService utbildningService = new UtbildningService();
 
-        // GET: Erfarenhet
+        // GET: Utbildning
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Erfarenhet/Details/5
+        // GET: Utbildning/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Erfarenhet/Create
+        // GET: Utbildning/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Erfarenhet/Create
+        // POST: Utbildning/Create
         [HttpPost]
-        public ActionResult Create(ErfarenhetModel model)
+        public ActionResult Create(UtbildningModel model)
         {
             try
             {
                 var cv = db.cvs.Where(row => row.Username == User.Identity.Name).FirstOrDefault();
-                erfarenhetService.CreateErfarenhet(model, cv.Id);
+                utbildningService.CreateUtbildning(model, cv.Id);
 
-                return RedirectToAction("Index", "CV");
+                return RedirectToAction("Index", "Cv");
             }
             catch
             {
@@ -51,23 +52,25 @@ namespace CVsiteGrupp16.Controllers
             }
         }
 
-        // GET: Erfarenhet/Edit/5
+        // GET: Utbildning/Edit/5
         public ActionResult Edit(int id)
         {
-            Erfarenhet inlagdErfarenhet = db.erfarenheter.Find(id);
-            return View(inlagdErfarenhet);
+            Utbildning inlagdUtbildning = db.utbildningar.Find(id);
+
+            return View(inlagdUtbildning);
         }
 
-        // POST: Erfarenhet/Edit/5
+        // POST: Utbildning/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Erfarenhet model)
+        public ActionResult Edit(Utbildning model)
         {
             try
             {
-                erfarenhetService.UpdateErfarenhet(model);
+                utbildningService.UpdateUtbildning(model);
 
-                return RedirectToAction("Index", "CV");
+
+                return RedirectToAction("Index", "Cv");
             }
             catch
             {
@@ -75,24 +78,25 @@ namespace CVsiteGrupp16.Controllers
             }
         }
 
-        // GET: Erfarenhet/Delete/5
+        // GET: Utbildning/Delete/5
         public ActionResult Delete(int id)
         {
-            Erfarenhet inlagdErfarenhet = db.erfarenheter.Find(id);
-            return View(inlagdErfarenhet);
+            Utbildning inlagdUtbildning = db.utbildningar.Find(id);
+
+            return View(inlagdUtbildning);
         }
 
-        // POST: Erfarenhet/Delete/5
+        // POST: Utbildning/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Erfarenhet model)
+        public ActionResult Delete(int id, Utbildning model)
         {
             try
             {
-                Erfarenhet erfarenhet = db.erfarenheter.Find(id);
-                db.erfarenheter.Remove(erfarenhet);
+                Utbildning utbildning = db.utbildningar.Find(id);
+                db.utbildningar.Remove(utbildning);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "CV");
+                return RedirectToAction("Index", "Cv");
             }
             catch
             {

@@ -32,53 +32,53 @@ namespace CVsiteGrupp16.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Create(MessageModel model)
-        {
-            return View();
-            //try
-            //{
-            //    var sender = "";
-            //    if (User.Identity.IsAuthenticated)
-            //    {
-            //        sender = User.Identity.Name;
-            //    }
-            //    else
-            //    {
-            //        sender = model.Sender;
-            //    }
-            //    var service = new MessageService(System.Web.HttpContext.Current);
-            //    service.SaveNewMessage(model, sender);
-            //    return RedirectToAction("Index", "Home");
-            //}
-            //catch
-            //{
-            //    return View();
-            //}
-        }
+        //[HttpPost]
+        //public ActionResult Create(MessageModel model)
+        //{
+        //    return View();
+        //    try
+        //    {
+        //        var sender = "";
+        //        if (User.Identity.IsAuthenticated)
+        //        {
+        //            sender = User.Identity.Name;
+        //        }
+        //        else
+        //        {
+        //            sender = model.Sender;
+        //        }
+        //        var service = new MessageService(System.Web.HttpContext.Current);
+        //        service.SaveNewMessage(model, sender);
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
 
         // GET: Message/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        //public ActionResult Edit(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: Message/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
+        //// POST: Message/Edit/5
+        //[HttpPost]
+        //public ActionResult Edit(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
         // GET: Message/Delete/5
         public ActionResult Delete(int? id)

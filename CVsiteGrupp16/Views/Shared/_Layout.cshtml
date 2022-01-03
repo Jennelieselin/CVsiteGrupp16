@@ -22,9 +22,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Startsida", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Skapa CV", "Create", "CV")</li>
-                    <li>@Html.ActionLink("Projekt", "Index", "Project")</li>
-                    <li>@Html.ActionLink("Sök", "Index", "Search")</li>
+                    <li>@Html.ActionLink("Projekt", "MainIndex", "Project")</li>
+                    <li>@Html.ActionLink("Sök", "SearchIndex", "Cv")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

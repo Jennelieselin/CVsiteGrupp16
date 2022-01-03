@@ -1,0 +1,33 @@
+﻿@model Data.Models.Kompetens
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Radera kompetens</h2>
+
+<h3>Är du säker att du vill radera denna kompetens?</h3>
+<div>
+    <h4>Kompetens</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Namn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Namn)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Radera" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka till CV", "Index", "Cv")
+        </div>
+    }
+</div>

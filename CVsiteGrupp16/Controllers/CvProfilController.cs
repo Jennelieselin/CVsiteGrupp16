@@ -1,4 +1,6 @@
 ﻿using Data;
+using Services;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +11,44 @@ namespace CVsiteGrupp16.Controllers
 {
     public class CvProfilController : Controller
     {
+        private CvProfilService cvProfilService = new CvProfilService(System.Web.HttpContext.Current);
 
         private CvDbContext db = new CvDbContext();
-        // GET: CvProfil
+
+        
+
+
         public ActionResult Index()
         {
-            return View();
+            var cv = db.cvs.Where(row => row.Username == User.Identity.Name).FirstOrDefault();
+            var visaCv = cvProfilService.GetCvIndexVeiw(cv.Id);
+            return View(visaCv);
         }
+
+        public ActionResult SearchIndex(string searchString)
+        {
+            var cv = from c in db.cvs select c;
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    cv = cv.Where(row => row.Namn.Contains(searchString));
+                }
+            }
+            else
+            {
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    cv = cv.Where(row => row.Namn.Contains(searchString) && row.Privat == false);
+                }
+                else
+                {
+                    cv = cv.Where(row => row.Privat == false);
+                }
+            }
+            return View(cv);
+        }
+
 
         // GET: CvProfil/Details/5
         public ActionResult Details(int id)
@@ -24,9 +57,11 @@ namespace CVsiteGrupp16.Controllers
         }
 
         // GET: CvProfil/Create
-        public ActionResult Create()
+        public void Create(string username)
         {
-            return View();
+            var nyttCv = cvProfilService.CreateCv(username);
+            db.cvs.Add(nyttCv);
+            db.SaveChanges();
         }
 
         // POST: CvProfil/Create
@@ -45,19 +80,44 @@ namespace CVsiteGrupp16.Controllers
             }
         }
 
-        // GET: CvProfil/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditImg(int id)
         {
-            return View();
+            var nyttCvView = cvProfilService.GetEditImgView(id);
+            return View(nyttCvView);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditImg(CvEditImg model)
+        {
+            try
+            {
+                cvProfilService.UpdateImg(model);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+     
+
+
+        // GET: CvProfil/Edit/5
+        public ActionResult EditInfo(int id)
+        {
+            var nyttCvView = cvProfilService.GetEditInfoView(id);
+            return View(nyttCvView);
         }
 
         // POST: CvProfil/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult EditInfo(CvEditInfo cv)
         {
             try
             {
-                // TODO: Add update logic here
+                cvProfilService.UpdateInfo(cv);
 
                 return RedirectToAction("Index");
             }

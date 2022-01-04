@@ -10,9 +10,9 @@ namespace Data.Contexts
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
-    { 
-  
+    {
 
+        public virtual ICollection<Project> Project { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -30,6 +30,16 @@ namespace Data.Contexts
         {
         }
 
+        public DbSet<CvProfil> cvs { get; set; }
+        public DbSet<Utbildning> utbildningar { get; set; }
+        public DbSet<Erfarenhet> erfarenheter { get; set; }
+        public DbSet<Kompetens> kompetens { get; set; }
+
+        public DbSet<Message> messages { get; set; }
+
+        public DbSet<Project> projects { get; set; }
+
+       // public DbSet<ApplicationUserProject> usersInProjects { get; set; }
 
         public static ApplicationDbContext Create()
         {

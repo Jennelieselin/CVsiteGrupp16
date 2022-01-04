@@ -13,7 +13,7 @@ namespace Services
         public class MessageService
         {
             private readonly HttpContext _httpcontext;
-            private MessageDbContext db = new MessageDbContext();
+            private ApplicationDbContext db = new ApplicationDbContext();
             public MessageService(HttpContext httpContext)
             {
                 _httpcontext = httpContext;
@@ -23,7 +23,7 @@ namespace Services
             {
                 try
                 {
-                    using (var context = new MessageDbContext())
+                    using (var context = new ApplicationDbContext())
                     {
 
                         var newMessage = new Message()

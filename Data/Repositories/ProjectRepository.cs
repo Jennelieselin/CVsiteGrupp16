@@ -10,7 +10,7 @@ namespace Data.Repositories
 {
     public class ProjectRepository
     {
-        private ProjectDbContext db = new ProjectDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public Project GetLatest()
         {
@@ -21,13 +21,13 @@ namespace Data.Repositories
 
         public List<Project> GetListOfProjects(string username)
         {
-            UsersProjectDbContext usersInProjectsDbContext = new UsersProjectDbContext();
-            var userInvolvedInProjects = usersInProjectsDbContext.usersInProjects.Where(m => m.Username.Equals(username)).ToList();
+            ApplicationDbContext usersInProjectsDbContext = new ApplicationDbContext();
+            var userInvolvedInProjects = usersInProjectsDbContext.usersInProjects.Where(m => m.UserName.Equals(username)).ToList();
 
             List<Project> listOfProjects = new List<Project>();
             foreach (var element in userInvolvedInProjects)
             {
-                var project = db.projects.Where(m => m.Id == element.ProjectId).FirstOrDefault();
+                var project = db.projects.Where(m => m.Id == element.Id).FirstOrDefault();
                 listOfProjects.Add(project);
             }
             return listOfProjects;

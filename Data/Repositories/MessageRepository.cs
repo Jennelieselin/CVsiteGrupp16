@@ -10,9 +10,9 @@ namespace Data.Repositories
 {
     public class MessageRepository
     {
-        private readonly MessageDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public MessageRepository(MessageDbContext context)
+        public MessageRepository(ApplicationDbContext context)
         {
             _context = context;
         }

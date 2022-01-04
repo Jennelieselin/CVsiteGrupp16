@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Contexts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace Data.Models
         public string Beskrivning { get; set; }
         public string Username { get; set; }
         public DateTime Datum { get; set; }
+
+        public virtual ICollection<ApplicationUser> Users { get; set; }
        
     }
 }

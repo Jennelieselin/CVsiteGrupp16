@@ -1,4 +1,5 @@
-﻿using Data.Models;
+﻿using Data.Contexts;
+using Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace Data.Repositories
 {
     public class ErfarenhetRepository
     {
-        private CvDbContext db = new CvDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
-        public List<Erfarenhet> GetListOfErfarenhet (int cvId)
+        public List<Erfarenhet> GetListOfErfarenhet(int cvId)
         {
             return db.erfarenheter.Where(x => x.CvId == cvId).ToList();
         }

@@ -13,7 +13,7 @@ namespace Services
     public class UsersProjectService
     {
         private readonly HttpContext _httpcontext;
-        private UsersProjectDbContext db = new UsersProjectDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public UsersProjectService(HttpContext httpcontext)
         {
@@ -22,7 +22,7 @@ namespace Services
 
         public DeleteUserInProjectView GetDelecteUsersInProjectsView(int id)
         {
-            ProjectDbContext projectDbContext = new ProjectDbContext();
+            ApplicationDbContext projectDbContext = new ApplicationDbContext();
             var project = projectDbContext.projects.Find(id);
             var newView = new DeleteUserInProjectView
             {
@@ -36,10 +36,10 @@ namespace Services
 
         public void DeleteUserInProject(string userId)
         {
-            var UserInProjects = db.usersInProjects.Where(row => row.UserId.Equals(userId));
+            var UserInProjects = db.Users.Where(row => row.Id.Equals(userId));
             foreach (var row in UserInProjects)
             {
-                db.usersInProjects.Remove(row);
+                db.Users.Remove(row);
             }
             db.SaveChanges();
         }
@@ -47,29 +47,31 @@ namespace Services
         // Raderar de rader i tabellen "UsersInProjects" som har ett specifikt projektId
         public void DeleteUserInProject(int projectId)
         {
-            var UserInProjects = db.usersInProjects.Where(row => row.ProjectId == projectId);
+            var UserInProjects = db.Users.Where(row => row.Id == projectId);
             foreach (var row in UserInProjects)
             {
-                db.usersInProjects.Remove(row);
+                db.Users.Remove(row);
             }
             db.SaveChanges();
         }
 
-        public void CreateUserInProject(int newProjectId, string newUserId, string newUserName)
+        public void CreateUserInProject(int newProjectId, string newName, string newBeskrivning, string newUserName, DateTime newDatum)
         {
-            var newUserInProject = new ApplicationUserProject()
+            var newUserInProject = new Project()
             {
-                ProjectId = newProjectId,
-                UserId = newUserId,
-                Username = newUserName
+                Id = newProjectId,
+                Namn = newName,
+                Beskrivning = newBeskrivning,
+                Username = newUserName,
+                Datum = newDatum
             };
-            db.usersInProjects.Add(newUserInProject);
+            db.projects.Add(newUserInProject);
             db.SaveChanges();
         }
 
         public IQueryable<string> GetUsernameInProject(int projectId)
         {
-            var usernameInProject = from u in db.usersInProjects where u.ProjectId == projectId select u.Username;
+            var usernameInProject = from u in db.projects where u.Id == projectId select u.Username;
             return usernameInProject;
         }
     }

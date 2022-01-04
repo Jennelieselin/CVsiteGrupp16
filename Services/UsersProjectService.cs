@@ -13,16 +13,16 @@ namespace Services
     public class UsersProjectService
     {
         private readonly HttpContext _httpcontext;
-        private UsersProjectDbContext db = new UsersProjectDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public UsersProjectService(HttpContext httpcontext)
         {
             _httpcontext = httpcontext;
         }
 
-        public DeleteUserInProjectView GetDelecteUsersInProjectsView(int id)
+        public DeleteUserInProjectView GetDeleteUsersInProjectsView(int id)
         {
-            ProjectDbContext projectDbContext = new ProjectDbContext();
+            ApplicationDbContext projectDbContext = new ApplicationDbContext();
             var project = projectDbContext.projects.Find(id);
             var newView = new DeleteUserInProjectView
             {
@@ -33,7 +33,7 @@ namespace Services
             };
             return newView;
         }
-
+        //raderar vid specifikt userid
         public void DeleteUserInProject(string userId)
         {
             var UserInProjects = db.usersInProjects.Where(row => row.UserId.Equals(userId));

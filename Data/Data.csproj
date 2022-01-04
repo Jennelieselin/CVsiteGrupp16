@@ -76,37 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\ApplicationDbContext.cs" />
-    <Compile Include="Contexts\CvDbContext.cs" />
-    <Compile Include="Contexts\MessageDbContext.cs" />
-    <Compile Include="Contexts\ProjectDbContext.cs" />
-    <Compile Include="Contexts\UsersProjectDbContext.cs" />
-    <Compile Include="Migrations\202112220751032_InitialCreate.cs" />
-    <Compile Include="Migrations\202112220751032_InitialCreate.designer.cs">
-      <DependentUpon>202112220751032_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112221504388_addedProject.cs" />
-    <Compile Include="Migrations\202112221504388_addedProject.designer.cs">
-      <DependentUpon>202112221504388_addedProject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112271350395_hej.cs" />
-    <Compile Include="Migrations\202112271350395_hej.designer.cs">
-      <DependentUpon>202112271350395_hej.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112271627262_cv-added.cs" />
-    <Compile Include="Migrations\202112271627262_cv-added.designer.cs">
-      <DependentUpon>202112271627262_cv-added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112301322086_addedUserProhejct.cs" />
-    <Compile Include="Migrations\202112301322086_addedUserProhejct.designer.cs">
-      <DependentUpon>202112301322086_addedUserProhejct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201031312142_addedcvPfrofil-utbildning-kompetens-erfarenhet.cs" />
-    <Compile Include="Migrations\202201031312142_addedcvPfrofil-utbildning-kompetens-erfarenhet.designer.cs">
-      <DependentUpon>202201031312142_addedcvPfrofil-utbildning-kompetens-erfarenhet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201031502381_added-date-project.cs" />
-    <Compile Include="Migrations\202201031502381_added-date-project.designer.cs">
-      <DependentUpon>202201031502381_added-date-project.cs</DependentUpon>
+    <Compile Include="Migrations\202201041917054_nytt.cs" />
+    <Compile Include="Migrations\202201041917054_nytt.designer.cs">
+      <DependentUpon>202201041917054_nytt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUserProject.cs" />
@@ -129,26 +101,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202112220751032_InitialCreate.resx">
-      <DependentUpon>202112220751032_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112221504388_addedProject.resx">
-      <DependentUpon>202112221504388_addedProject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112271350395_hej.resx">
-      <DependentUpon>202112271350395_hej.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112271627262_cv-added.resx">
-      <DependentUpon>202112271627262_cv-added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112301322086_addedUserProhejct.resx">
-      <DependentUpon>202112301322086_addedUserProhejct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201031312142_addedcvPfrofil-utbildning-kompetens-erfarenhet.resx">
-      <DependentUpon>202201031312142_addedcvPfrofil-utbildning-kompetens-erfarenhet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201031502381_added-date-project.resx">
-      <DependentUpon>202201031502381_added-date-project.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201041917054_nytt.resx">
+      <DependentUpon>202201041917054_nytt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

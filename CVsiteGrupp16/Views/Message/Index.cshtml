@@ -69,27 +69,46 @@
             $('input[type="checkbox"]').click(function () {
                 var messageId = $(this).data('id');
                 if ($(this).is(":checked")) {
-                    $("#result").html("Checkbox is checked." + messageId);
+                    // $("#result").html("Checkbox is checked." + messageId);
                     $.get('/api/message/read/' + messageId)
                 }
                 else if ($(this).is(":not(:checked)")) {
-                    $("#result").html("Checkbox is unchecked.");
+                    //  $("#result").html("Checkbox is unchecked.");
                     $.get('/api/message/unread/' + messageId)
                 }
             });
         });
     </script>
+
     <script>
-        $(document).ready(function () {
-            setInterval(function () {
-                var count;
-                $.get('/api/message/countmessages/', function (result) {
-                    count = result;
-                    $("#resultCount").html("(Olästa:" + count + ")");
-                })
-            }, 3000);
+        function unreadMessages() {
+            $.get('/api/message/countmessages/', function (result) {
+                count = result;
+                $("#resultCount").html("(Olästa:" + count + ")");
+            })
+        }
+
+        $(document).ready(function startSetInterval() {
+            setInterval(function unreadmessages() {
+                unreadMessages();
+                return unreadMessages;
+            }(), 2000);
         })
+
     </script>
+
+
+    @*<script>
+            $(document).ready(function () {
+                setInterval(function () {
+                    var count;
+                    $.get('/api/message/countmessages/', function (result) {
+                        count = result;
+                        $("#resultCount").html("(Olästa:" + count + ")");
+                    })
+                }, 3000);
+            })
+        </script>*@
 
 
 

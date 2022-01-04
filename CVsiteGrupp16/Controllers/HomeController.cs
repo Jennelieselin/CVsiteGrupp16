@@ -1,10 +1,31 @@
-﻿using System;
+﻿//using Services;
+//using System.Web.Mvc;
+
+//namespace CvSiteGrupp7.Controllers
+//{
+//    public class HomeController : Controller
+//    {
+//        private HomeService homeService = new HomeService(System.Web.HttpContext.Current);
+//        public ActionResult Index()
+//        {
+//            bool inloggad = false;
+//            if (User.Identity.IsAuthenticated)
+//            {
+//                inloggad = true;
+//            }
+//            var showHomeViewModel = homeService.GetStartViewModel(inloggad);
+//            return View(showHomeViewModel);
+//        }
+//    }
+//}
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CVsiteGrupp16.Controllers
+namespace CvSiteGrupp7.Controllers
 {
     public class HomeController : Controller
     {
@@ -13,18 +34,19 @@ namespace CVsiteGrupp16.Controllers
             return View();
         }
 
-        public ActionResult About()
+        //public ActionResult Project()
+        //{
+        //    ViewBag.Message = "Här kan du se alla registrerade projekt.";
+
+        //    return View();
+        //}
+
+        public ActionResult Search()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Här kan du söka efter registerade CVn.";
 
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

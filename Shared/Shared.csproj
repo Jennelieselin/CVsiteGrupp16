@@ -49,8 +49,7 @@
     <Compile Include="Models\KompetensModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\ProjectModel.cs" />
-    <Compile Include="Models\StartModel.cs" />
-    <Compile Include="Models\UserProjectModel.cs" />
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\UsersProjectModel.cs" />
     <Compile Include="Models\UtbildningModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

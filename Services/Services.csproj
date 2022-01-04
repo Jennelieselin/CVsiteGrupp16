@@ -64,6 +64,7 @@
     <Compile Include="MessageService.cs" />
     <Compile Include="ProjectService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HomeService.cs" />
     <Compile Include="UsersProjectService.cs" />
     <Compile Include="UtbildningService.cs" />
   </ItemGroup>

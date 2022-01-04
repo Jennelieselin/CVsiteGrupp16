@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Contexts;
 using Data.Models;
 using Data.Repositories;
 using Shared.Models;
@@ -15,7 +16,7 @@ namespace Services
     public class CvProfilService
     {
         private readonly HttpContext _httpcontext;
-        private CvDbContext db = new CvDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         private ErfarenhetRepository erfarenhetRepository = new ErfarenhetRepository();
         private KompetensRepository kompetensRepository = new KompetensRepository();
         private ProjectRepository projectRepository = new ProjectRepository();  

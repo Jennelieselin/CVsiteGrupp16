@@ -17,7 +17,7 @@ namespace Data.Models
         [Display(Name ="Datum")]
         public DateTime Datum { get; set; }
         [Display(Name ="Läst")]
-        public bool Läst { get; set; }
+        public bool Read { get; set; }
         [Display(Name ="Meddelande")]
         public string Content { get; set; }
         public string UserName { get; set; }

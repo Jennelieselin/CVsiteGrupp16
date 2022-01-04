@@ -12,7 +12,7 @@ namespace Services
 {
     public class ProjectService
     {
-        private ProjectDbContext db = new ProjectDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         private readonly HttpContext _httpcontext;
 
         public ProjectService(HttpContext httpcontext)

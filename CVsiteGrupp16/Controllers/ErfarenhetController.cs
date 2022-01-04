@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Contexts;
 using Data.Models;
 using Services;
 using Shared.Models;
@@ -12,7 +13,7 @@ namespace CVsiteGrupp16.Controllers
 {
     public class ErfarenhetController : Controller
     {
-        private CvDbContext db = new CvDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         private ErfarenhetService erfarenhetService = new ErfarenhetService();
 

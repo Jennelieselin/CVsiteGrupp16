@@ -11,9 +11,12 @@ namespace Data.Models
     public  class ApplicationUserProject
     {
        [Key]
-       [Required]
-       public int ProjectId { get; set; }
+        [Column(Order = 1)]
+        [Required]
+       
+        public int ProjectId { get; set; }
         [Key]
+        [Column(Order = 2)]
         [Required]
         public string UserId { get; set; }
         [Required]

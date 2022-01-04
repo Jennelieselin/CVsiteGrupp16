@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Contexts;
 using Data.Models;
 using Shared.Models;
 using System;
@@ -11,7 +12,7 @@ namespace Services
 {
     public class KompetensService
     {
-        private CvDbContext db = new CvDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public void CreateKompetens(KompetensModel model, int cvId)
         {

@@ -1,4 +1,5 @@
-﻿using Data.Models;
+﻿using Data.Contexts;
+using Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Data.Repositories
 {
     public class UtbildningRepository
     {
-        private CvDbContext db = new CvDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public List<Utbildning> GetListOfUtbildning(int cvId)
         {

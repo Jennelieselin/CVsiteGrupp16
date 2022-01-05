@@ -333,9 +333,3 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 Data/Migrations/202201041600530_tredjetestet.resx
-*.resx
-Data/Migrations/202201041600530_tredjetestet.resx
-*.resx
-Data/Migrations/202201041600530_tredjetestet.cs
-Data/Migrations/202201041600530_tredjetestet.Designer.cs
-Data/Migrations/202201041917054_nytt.Designer.cs

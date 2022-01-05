@@ -34,7 +34,7 @@ namespace Services
             return newView;
         }
         //raderar vid specifikt userid
-        public void DeleteUserInProject(int userId)
+        public void DeleteUserInProject(string userId)
         {
             var UserInProjects = db.Users.Where(row => row.Id.Equals(userId));
             foreach (var row in UserInProjects)
@@ -45,15 +45,15 @@ namespace Services
         }
 
         // Raderar de rader i tabellen "UsersInProjects" som har ett specifikt projektId
-        //public void DeleteUserInProject(int projectId)
-        //{
-        //    var UserInProjects = db.usersInProjects.Where(row => row.UserId == projectId);
-        //    foreach (var row in UserInProjects)
-        //    {
-        //        db.Users.Remove(row);
-        //    }
-        //    db.SaveChanges();
-        //}
+        public void DeleteUserInProject(int projectId)
+        {
+            var UserInProjects = db.Users.Where(row => row.Id == projectId);
+            foreach (var row in UserInProjects)
+            {
+                db.Users.Remove(row);
+            }
+            db.SaveChanges();
+        }
 
         public void CreateUserInProject(int newProjectId, string newName, string newBeskrivning, string newUserName, DateTime newDatum)
         {

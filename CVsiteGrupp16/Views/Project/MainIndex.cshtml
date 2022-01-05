@@ -4,40 +4,51 @@
     ViewBag.Title = "MainIndex";
 }
 
-<h2>Alla projekt som finns</h2>
+<h2>Samtliga projekt</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Namn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Beskrivning)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Datum)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Namn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Beskrivning)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Datum)
-        </td>
-        <td>
-            @Html.ActionLink("Se vilka som är med i projektet", "Index", "UsersInProjects", new { projectId = item.Id }, null)
-        </td>
-    </tr>
+    @using (Html.BeginForm())
+    {
+    <p>
+        Projektnamn: @Html.TextBox("searchString") <br />
+        <input type="submit" value="Sök" />
+    </p>
 }
+    <p />
 
-</table>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Namn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beskrivning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datum)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Namn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Beskrivning)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datum)
+                </td>
+                <td>
+                    @Html.ActionLink("Medverkande i projektet", "Index", "UsersInProjects", new { projectId = item.Id }, null)
+                </td>
+            </tr>
+        }
+
+    </table>

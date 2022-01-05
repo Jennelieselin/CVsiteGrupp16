@@ -31,6 +31,18 @@ namespace Data.Contexts
         }
 
 
+        public DbSet<Project> projects { get; set; }
+
+        public DbSet<Message> messages { get; set; }
+
+        public DbSet<CvProfil> cvs { get; set; }
+
+        public DbSet<ApplicationUserProject> usersInProjects { get; set; }
+
+        public DbSet<Kompetens> kompetens { get; set; }
+        public DbSet<Utbildning> utbildning { get; set; }
+        public DbSet<Erfarenhet> erfarenhet { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

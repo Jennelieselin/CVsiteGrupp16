@@ -27,7 +27,7 @@ namespace Data.Repositories
             List<Project> listOfProjects = new List<Project>();
             foreach (var element in userInProjects)
             {
-                var project = db.projects.Where(m => m.Id == element.ProjectId).FirstOrDefault();
+                var project = db.projects.Where(m => m.Id == element.Id).FirstOrDefault();
                 listOfProjects.Add(project);
             }
             return listOfProjects;

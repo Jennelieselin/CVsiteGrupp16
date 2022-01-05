@@ -39,7 +39,7 @@ namespace CVsiteGrupp16.Controllers
 
         // GET: UserInProject/Create
         public ActionResult Create()
-        {    
+        {
             ApplicationDbContext projectDb = new ApplicationDbContext();
 
             var allProjects = projectDb.projects.ToList();

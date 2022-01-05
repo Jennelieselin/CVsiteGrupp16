@@ -276,8 +276,7 @@
     <Content Include="Views\Project\Create.cshtml" />
     <Content Include="Views\Project\Edit.cshtml" />
     <Content Include="Views\Project\Delete.cshtml" />
-    <Content Include="Views\Home\SenasteProjekt.cshtml" />
-    <Content Include="Views\Home\CvHome.cshtml" />
+    <Content Include="Views\Manage\ChangeInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadedImages\" />

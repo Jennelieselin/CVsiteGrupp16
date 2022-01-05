@@ -12,7 +12,7 @@ namespace Data.Repositories
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public List<Erfarenhet> GetListOfErfarenhet (int cvId)
+        public List<Erfarenhet> GetListOfErfarenhet(int cvId)
         {
             return db.erfarenheter.Where(x => x.CvId == cvId).ToList();
         }

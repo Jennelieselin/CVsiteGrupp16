@@ -13,7 +13,7 @@ namespace CvSiteGrupp16.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private ProjectService ProjectService = new ProjectService(System.Web.HttpContext.Current);
-        private UsersProjectService UsersInProjectsService = new UsersProjectService(System.Web.HttpContext.Current);
+        //private UsersProjectService UsersInProjectsService = new UsersProjectService(System.Web.HttpContext.Current);
 
         // GET: Project
         public ActionResult UserIndex()
@@ -46,7 +46,7 @@ namespace CvSiteGrupp16.Controllers
             try
             {
                 Project newProject = ProjectService.CreateProject(projectModel, User.Identity.Name);
-                UsersInProjectsService.CreateUserInProject(newProject.Id, User.Identity.GetUserId(), User.Identity.Name);
+                UsersProjectsService.CreateUserInProject(newProject.Id, User.Identity.GetUserId(), User.Identity.Name);
                 return RedirectToAction("UserIndex");
             }
             catch

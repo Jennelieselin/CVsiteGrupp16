@@ -30,6 +30,7 @@ namespace Data.Contexts
         {
         }
         //hejhej
+        //hej på dig
 
         public DbSet<Project> projects { get; set; }
 

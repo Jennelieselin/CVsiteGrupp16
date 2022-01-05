@@ -29,7 +29,7 @@ namespace Data.Contexts
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        //hejhej
 
         public DbSet<Project> projects { get; set; }
 

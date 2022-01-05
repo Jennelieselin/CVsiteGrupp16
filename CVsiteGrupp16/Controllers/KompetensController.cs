@@ -14,7 +14,7 @@ namespace CVsiteGrupp16.Controllers
     public class KompetensController : Controller
     {
 
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext(); 
 
 
 

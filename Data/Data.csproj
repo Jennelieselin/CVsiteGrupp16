@@ -81,6 +81,7 @@
       <DependentUpon>202201041917054_nytt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApplicationUserProject.cs" />
     <Compile Include="Models\CvProfil.cs" />
     <Compile Include="Models\Erfarenhet.cs" />
     <Compile Include="Models\Kompetens.cs" />

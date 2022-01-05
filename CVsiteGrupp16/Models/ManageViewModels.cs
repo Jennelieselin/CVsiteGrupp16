@@ -12,14 +12,6 @@ namespace CVsiteGrupp16.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
-
-        public string Namn { get; set; }
-
-        public string Adress { get; set; }
-
-        public string Mail { get; set; }
-
-
     }
 
     public class ManageLoginsViewModel
@@ -91,17 +83,4 @@ namespace CVsiteGrupp16.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
-
-    public class ChangeInfoViewModel
-    {
-        [Display(Name = "Namn")]
-        public string Namn { get; set; }
-
-        [Display(Name = "Adress")]
-        public string Adress { get; set; }
-
-        [Display(Name = "Mail")]
-        public string Mail { get; set; }
-    }
-
 }

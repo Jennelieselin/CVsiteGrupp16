@@ -36,10 +36,10 @@ namespace Services
         //raderar vid specifikt userid
         public void DeleteUserInProject(string userId)
         {
-            var UserInProjects = db.Users.Where(row => row.Id.Equals(userId));
+            var UserInProjects = db.usersInProjects.Where(row => row.UserId.Equals(userId));
             foreach (var row in UserInProjects)
             {
-                db.Users.Remove(row);
+                db.usersInProjects.Remove(row);
             }
             db.SaveChanges();
         }
@@ -47,31 +47,29 @@ namespace Services
         // Raderar de rader i tabellen "UsersInProjects" som har ett specifikt projektId
         public void DeleteUserInProject(int projectId)
         {
-            var UserInProjects = db.Users.Where(row => row.Id == projectId);
+            var UserInProjects = db.usersInProjects.Where(row => row.ProjectId == projectId);
             foreach (var row in UserInProjects)
             {
-                db.Users.Remove(row);
+                db.usersInProjects.Remove(row);
             }
             db.SaveChanges();
         }
 
-        public void CreateUserInProject(int newProjectId, string newName, string newBeskrivning, string newUserName, DateTime newDatum)
+        public void CreateUserInProject(int newProjectId, string newUserId, string newUserName)
         {
-            var newUserInProject = new Project()
+            var newUserInProject = new ApplicationUserProject()
             {
-                Id = newProjectId,
-                Namn = newName,
-                Beskrivning = newBeskrivning,
-                Username = newUserName,
-                Datum = newDatum
+                ProjectId = newProjectId,
+                UserId = newUserId,
+                Username = newUserName
             };
-            db.projects.Add(newUserInProject);
+            db.usersInProjects.Add(newUserInProject);
             db.SaveChanges();
         }
 
         public IQueryable<string> GetUsernameInProject(int projectId)
         {
-            var usernameInProject = from u in db.projects where u.Id == projectId select u.Username;
+            var usernameInProject = from u in db.usersInProjects where u.ProjectId == projectId select u.Username;
             return usernameInProject;
         }
     }

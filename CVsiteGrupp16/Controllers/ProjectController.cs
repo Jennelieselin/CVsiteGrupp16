@@ -13,7 +13,7 @@ namespace CvSiteGrupp16.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private ProjectService ProjectService = new ProjectService(System.Web.HttpContext.Current);
-        //private UsersProjectService UsersInProjectsService = new UsersProjectService(System.Web.HttpContext.Current);
+        private UsersProjectService UsersInProjectsService = new UsersProjectService(System.Web.HttpContext.Current);
 
         // GET: Project
         public ActionResult UserIndex()
@@ -40,20 +40,20 @@ namespace CvSiteGrupp16.Controllers
         }
 
         // POST: Project/Create
-        [HttpPost]
-        public ActionResult Create(ProjectModel projectModel)
-        {
-            try
-            {
-                Project newProject = ProjectService.CreateProject(projectModel, User.Identity.Name);
-                UsersProjectsService.CreateUserInProject(newProject.Id, User.Identity.GetUserId(), User.Identity.Name);
-                return RedirectToAction("UserIndex");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //[HttpPost]
+        //public ActionResult Create(ProjectModel projectModel)
+        //{
+        //    try
+        //    {
+        //        Project newProject = ProjectService.CreateProject(projectModel, User.Identity.Name);
+        //        UsersInProjectsService.CreateUserInProject(newProject.Id, User.Identity.GetUserId(), User.Identity.Name);
+        //        return RedirectToAction("UserIndex");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
         // GET: Project/Edit/5
         public ActionResult Edit(int? id)
@@ -105,12 +105,12 @@ namespace CvSiteGrupp16.Controllers
         // POST: Project/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int userid)
         {
             try
             {
-                ProjectService.DeleteProject(id);
-                UsersInProjectsService.DeleteUserInProject(id);
+                ProjectService.DeleteProject(userid);
+                UsersInProjectsService.DeleteUserInProject(userid);
                 return RedirectToAction("UserIndex");
             }
             catch

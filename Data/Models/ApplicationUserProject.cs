@@ -12,7 +12,7 @@ namespace Data.Models
         [Key]
         [Column(Order = 2)]
         [Required]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         [Required]
         [Display(Name = "Användare")]
         public string UserName { get; set; }

@@ -1,5 +1,4 @@
 ﻿using Data;
-using Data.Contexts;
 using Services;
 using Shared.Models;
 using System;
@@ -14,7 +13,7 @@ namespace CVsiteGrupp16.Controllers
     {
         private CvProfilService cvProfilService = new CvProfilService(System.Web.HttpContext.Current);
 
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private CvDbContext db = new CvDbContext();
 
         
 

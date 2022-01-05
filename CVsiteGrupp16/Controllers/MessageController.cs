@@ -11,7 +11,7 @@ namespace CVsiteGrupp16.Controllers
 {
     public class MessageController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private MessageDbContext db = new MessageDbContext();
 
         // GET: Message
         public ActionResult Index()

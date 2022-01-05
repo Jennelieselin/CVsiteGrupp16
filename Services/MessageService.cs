@@ -13,7 +13,7 @@ namespace Services
         public class MessageService
         {
             private readonly HttpContext _httpcontext;
-            private ApplicationDbContext db = new ApplicationDbContext();
+            private MessageDbContext db = new MessageDbContext();
             public MessageService(HttpContext httpContext)
             {
                 _httpcontext = httpContext;
@@ -23,16 +23,16 @@ namespace Services
             {
                 try
                 {
-                    using (var context = new ApplicationDbContext())
+                    using (var context = new MessageDbContext())
                     {
 
                         var newMessage = new Message()
                         {
                             Avsändare = sender,
                             Datum = DateTime.Now,
-                            Read = model.Read,
+                            Läst = model.Läst,
                             Content = model.Content,
-                            UserName = model.UserName
+                            UserName = "xxx"
                         };
 
 

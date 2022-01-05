@@ -12,7 +12,7 @@ namespace Shared.Models
         public int Id { get; set; }
         [Display(Name="Avsändare")]
         public string Avsändare { get; set; }
-        public bool Read { get; set; }
+        public bool Läst { get; set; }
         [Required]
         [Display(Name="Meddelande")]
         public string Content { get; set; }

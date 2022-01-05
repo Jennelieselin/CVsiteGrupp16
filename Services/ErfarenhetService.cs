@@ -12,7 +12,7 @@ namespace Services
 {
     public class ErfarenhetService
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private CvDbContext db = new CvDbContext();
 
         public void CreateErfarenhet(ErfarenhetModel model, int cvId)
         {

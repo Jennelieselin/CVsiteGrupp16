@@ -1,5 +1,4 @@
 ﻿using Data;
-using Data.Contexts;
 using Data.Models;
 using Services;
 using Shared.Models;
@@ -14,7 +13,7 @@ namespace CVsiteGrupp16.Controllers
     public class UtbildningController : Controller
     {
 
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private CvDbContext db = new CvDbContext();
 
         private UtbildningService utbildningService = new UtbildningService();
 

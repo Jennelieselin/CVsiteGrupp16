@@ -1,5 +1,4 @@
-﻿using Data.Contexts;
-using Data.Models;
+﻿using Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ namespace Data.Repositories
 {
     public class KompetensRepository
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private CvDbContext db = new CvDbContext();
 
 
         public List<Kompetens> GetListOfKompetens(int cvId)

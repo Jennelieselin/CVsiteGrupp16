@@ -3,68 +3,10 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class nytt : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
-            CreateTable(
-                "dbo.CvProfils",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Namn = c.String(),
-                        Adress = c.String(),
-                        Username = c.String(),
-                        ImagePath = c.String(),
-                        Privat = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Erfarenhets",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Namn = c.String(nullable: false),
-                        CvId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Kompetens",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Namn = c.String(nullable: false),
-                        CvId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Messages",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Avsändare = c.String(nullable: false),
-                        Datum = c.DateTime(nullable: false),
-                        Read = c.Boolean(nullable: false),
-                        Content = c.String(),
-                        UserName = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Projects",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Namn = c.String(),
-                        Beskrivning = c.String(),
-                        Username = c.String(),
-                        Datum = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
@@ -93,6 +35,9 @@
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        Namn = c.String(),
+                        Adress = c.String(),
+                        PrivatKonto = c.Boolean(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -122,6 +67,19 @@
                 .Index(t => t.UserId);
             
             CreateTable(
+                "dbo.Cvs",
+                c => new
+                    {
+                        ApplicationUserId = c.String(nullable: false, maxLength: 128),
+                        Kompetens = c.String(),
+                        Utbildning = c.String(),
+                        Erfarenhet = c.String(),
+                    })
+                .PrimaryKey(t => t.ApplicationUserId)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUserId)
+                .Index(t => t.ApplicationUserId);
+            
+            CreateTable(
                 "dbo.AspNetUserLogins",
                 c => new
                     {
@@ -133,52 +91,28 @@
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
-            CreateTable(
-                "dbo.ApplicationUserProjects",
-                c => new
-                    {
-                        ProjectId = c.Int(nullable: false),
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        Username = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.ProjectId, t.UserId });
-            
-            CreateTable(
-                "dbo.Utbildnings",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Namn = c.String(nullable: false),
-                        CvId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Cvs", "ApplicationUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.Cvs", new[] { "ApplicationUserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropTable("dbo.Utbildnings");
-            DropTable("dbo.ApplicationUserProjects");
             DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.Cvs");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Projects");
-            DropTable("dbo.Messages");
-            DropTable("dbo.Kompetens");
-            DropTable("dbo.Erfarenhets");
-            DropTable("dbo.CvProfils");
         }
     }
 }

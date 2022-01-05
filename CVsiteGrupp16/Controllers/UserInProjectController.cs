@@ -15,7 +15,7 @@ namespace CVsiteGrupp16.Controllers
 
         private CvProfilService cvProfilService = new CvProfilService(System.Web.HttpContext.Current);
         private UsersProjectService userProjectService = new UsersProjectService(System.Web.HttpContext.Current);
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private UsersProjectDbContext db = new UsersProjectDbContext();
 
 
         // GET: UserInProject
@@ -40,7 +40,7 @@ namespace CVsiteGrupp16.Controllers
         // GET: UserInProject/Create
         public ActionResult Create()
         {    
-            ApplicationDbContext projectDb = new ApplicationDbContext();
+            ProjectDbContext projectDb = new ProjectDbContext();
 
             var allProjects = projectDb.projects.ToList();
             var allInvolvedProjects = db.usersInProjects.Where(m => m.Username.Equals(User.Identity.Name)).ToList();
@@ -106,7 +106,7 @@ namespace CVsiteGrupp16.Controllers
         // GET: UserInProject/Delete/5
         public ActionResult Delete(int id)
         {
-            var newView = userProjectService.GetDeleteUsersInProjectsView(id);
+            var newView = userProjectService.GetDelecteUsersInProjectsView(id);
             return View(newView);
         }
 

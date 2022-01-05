@@ -11,7 +11,7 @@ namespace CVsiteGrupp16
         {
             ConfigureAuth(app);
 
-            app.CreatePerOwinContext(() => new ApplicationDbContext());
+            app.CreatePerOwinContext(() => new MessageDbContext());
         }
     }
 }

@@ -10,22 +10,22 @@ namespace Data.Repositories
 {
     public class ProjectRepository
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ProjectDbContext db = new ProjectDbContext();
 
         public Project GetLatest()
         {
-            Project latestProject = db.projects.OrderByDescending(row => row.Datum).FirstOrDefault();
-            return latestProject;
+            Project senasteProjekt = db.projects.OrderByDescending(row => row.Datum).FirstOrDefault();
+            return senasteProjekt;
         }
 
 
         public List<Project> GetListOfProjects(string username)
         {
-            ApplicationDbContext usersProjectDbContext = new ApplicationDbContext();
-            var userInProjects = usersProjectDbContext.usersInProjects.Where(m => m.Username.Equals(username)).ToList();
+            UsersProjectDbContext usersInProjectsDbContext = new UsersProjectDbContext();
+            var userInvolvedInProjects = usersInProjectsDbContext.usersInProjects.Where(m => m.Username.Equals(username)).ToList();
 
             List<Project> listOfProjects = new List<Project>();
-            foreach (var element in userInProjects)
+            foreach (var element in userInvolvedInProjects)
             {
                 var project = db.projects.Where(m => m.Id == element.ProjectId).FirstOrDefault();
                 listOfProjects.Add(project);

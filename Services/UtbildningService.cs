@@ -1,5 +1,4 @@
 ﻿using Data;
-using Data.Contexts;
 using Data.Models;
 using Shared.Models;
 using System;
@@ -12,7 +11,7 @@ namespace Services
 {
     public class UtbildningService
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private CvDbContext db = new CvDbContext();
 
         public void CreateUtbildning(UtbildningModel model, int cvId)
         {

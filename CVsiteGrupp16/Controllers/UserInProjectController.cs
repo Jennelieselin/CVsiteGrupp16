@@ -67,11 +67,11 @@ namespace CVsiteGrupp16.Controllers
 
 // POST: UserInProject/Create
 [HttpPost]
-        public ActionResult Create(string SelectedProjectId)
+        public ActionResult Create(int SelectedProjectId)
         {
             try
             {
-                userProjectService.CreateUserInProject(Int32.Parse(SelectedProjectId), User.Identity.GetUserId(), User.Identity.Name);
+                userProjectService.CreateUserInProject(SelectedProjectId, User.Identity.GetUserId(), User.Identity.Name);
 
                 return RedirectToAction("Index", "CV");
             }

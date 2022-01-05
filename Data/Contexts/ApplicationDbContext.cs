@@ -31,7 +31,7 @@ namespace Data.Contexts
         }
 
         public DbSet<Project> projects { get; set; }
-        public DbSet<ApplicationUserProject> usersInProjects { get; set; }
+        public DbSet<UserInProject> usersInProjects { get; set; }
         public DbSet<Message> messages { get; set; }
         public DbSet<CvProfil> cvs { get; set; }
         public DbSet<Utbildning> utbildningar { get; set; }

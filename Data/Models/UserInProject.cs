@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Models
 {
-    public class ApplicationUserProject
+    public class UserInProject
     {
         [Key]
         [Column(Order = 1)]
@@ -12,9 +12,9 @@ namespace Data.Models
         [Key]
         [Column(Order = 2)]
         [Required]
-        public int UserId { get; set; }
+        public int Id { get; set; }
         [Required]
         [Display(Name = "Användare")]
-        public string UserName { get; set; }
+        public string Username { get; set; }
     }
 }

@@ -46,7 +46,7 @@ namespace CvSiteGrupp16.Controllers
             try
             {
                 Project newProject = ProjectService.CreateProject(projectModel, User.Identity.Name);
-                UsersProjectsService.CreateUserInProject(newProject.Id, User.Identity.GetUserId(), User.Identity.Name);
+                UsersInProjectsService.CreateUserInProject(newProject.Id, User.Identity.GetUserId(), User.Identity.Name);
                 return RedirectToAction("UserIndex");
             }
             catch

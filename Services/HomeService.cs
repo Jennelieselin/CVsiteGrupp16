@@ -19,7 +19,7 @@ namespace Services
                 {
                     ProjektNamn = latestProject.Namn,
                     ProjektBeskrivning = latestProject.Beskrivning,
-                    ListOfCvs = cvRepository.GetListOfCv(inloggad)
+                    ListOfCvs = cvRepository.GetListOfCvS(inloggad)
                 };
                 return newHomeModel;
             }
@@ -29,7 +29,7 @@ namespace Services
                 {
                     ProjektNamn = null,
                     ProjektBeskrivning = null,
-                    ListOfCvs = cvRepository.GetListOfCv(inloggad)
+                    ListOfCvs = cvRepository.GetListOfCvS(inloggad)
                 };
                 return noProjectsHomeModel;
             }

@@ -1,0 +1,32 @@
+﻿<table class="table">
+
+    <tr>
+        <th>
+            Namn
+        </th>
+        <th>
+            Beskrivning
+        </th>
+        <th>
+            Tillagt datum
+        </th>
+    </tr>
+
+    @foreach (var item in Model.ListOfProjects)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Namn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Beskrivning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.ActionLink("Ta bort", "Delete", "UserInProject", new { id = item.Id }, null)
+        </td>
+    </tr>
+    }
+</table>

@@ -19,7 +19,7 @@ namespace Data.Models
         [Required]
         public string UserId { get; set; }
         [Required]
-        public string Username{ get; set; }
+        public string UserName{ get; set; }
 
 
     }

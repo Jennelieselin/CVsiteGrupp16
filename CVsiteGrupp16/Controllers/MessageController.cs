@@ -27,10 +27,20 @@ namespace CVsiteGrupp16.Controllers
         }
 
         // GET: Message/Create
-        public ActionResult Create()
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
+
+
+        public ActionResult Create(string mottagare, int id)
         {
+            var model = new MessageModel();
+            model.Mottagare = mottagare;
+            model.Id = id;
             return View();
         }
+
 
         //[HttpPost]
         //public ActionResult Create(MessageModel model)
@@ -96,6 +106,7 @@ namespace CVsiteGrupp16.Controllers
         }
 
         // POST: Message/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)

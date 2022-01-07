@@ -9,6 +9,7 @@
 //using System.Linq;
 //using System.Net.Http;
 //using System.Web;
+//using System.Web.Mvc;
 //using System.Web.Http;
 
 
@@ -23,7 +24,7 @@
 //        {
 //            get { return new MessageRepository(Request.GetOwinContext().Get<MessageDbContext>()); }
 //        }
-//        MessageService messageService = new MessageService(System.Web.HttpContext.Current);
+//        //MessageService messageService = new MessageService(System.Web.HttpContext.Current);
 
 //        [HttpGet]
 //        [Route("/read/{id}")]
@@ -68,7 +69,7 @@
 //        }
 
 
-//        Använda för att sätta siffran till notiser??
+//        //Använda för att sätta siffran till notiser??
 //        [HttpGet]
 //        [Route("countmessages")]
 //        public int CountUnreadMessages()
@@ -109,4 +110,3 @@
 
 //    }
 //}
-

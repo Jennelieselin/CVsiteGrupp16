@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Data.Models.Message>
+﻿@using Shared.Models
+@model IEnumerable<Data.Models.Message>
 
 @{
     ViewBag.Title = "Inkorg";
@@ -28,69 +29,93 @@
 
     @foreach (var item in Model)
     {
-        if (item.UserName == "xxx")
+        //if (item.UserName == "xxx")
+        if (item.UserName == User.Identity.Name)
         {
-    <tr>
-        <td>
-            @if(item.Läst == true){
-            <input type="checkbox" data-id="@item.Id" checked />
-                           } else {
-            <input type="checkbox" data-id="@item.Id" />
+            <tr>
+                <td>
+                    @if (item.Läst == true)
+                    {
+                        <input type="checkbox" data-id="@item.Id" checked />
                     }
-        </td>
+                    else
+                    {
+                        <input type="checkbox" data-id="@item.Id" />
+                    }
+                </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Avsändare)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Datum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Läst)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.ActionLink("Ta bort", "Delete", new { id=item.Id }) |
+                <td>
+                    @Html.DisplayFor(modelItem => item.Avsändare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Läst)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.ActionLink("Ta bort", "Delete", new { id = item.Id }) |
 
-        </td>
-    </tr>
+                </td>
+            </tr>
+        }
     }
-}
 
 </table>
+
+
 @section scripts{
     <script>
         $(document).ready(function () {
             $('input[type="checkbox"]').click(function () {
                 var messageId = $(this).data('id');
                 if ($(this).is(":checked")) {
-                    $("#result").html("Checkbox is checked." + messageId);
                     $.get('/api/message/read/' + messageId)
                 }
                 else if ($(this).is(":not(:checked)")) {
-                    $("#result").html("Checkbox is unchecked.");
                     $.get('/api/message/unread/' + messageId)
                 }
             });
         });
     </script>
-    <script>
-        $(document).ready(function () {
-            setInterval(function () {
-                var count;
-                $.get('/api/message/countmessages/', function (result) {
-                    count = result;
-                    $("#resultCount").html("(Olästa:" + count + ")");
-                })
-            }, 3000);
-        })
-    </script>
-
-
-
 }
+
+
+
+@*@section scripts{
+        <script>
+            $(document).ready(function () {
+                $('input[type="checkbox"]').click(function () {
+                    var messageId = $(this).data('id');
+                    if ($(this).is(":checked")) {
+                        $("#result").html("Checkbox is checked." + messageId);
+                        $.get('/api/message/read/' + messageId)
+                    }
+                    else if ($(this).is(":not(:checked)")) {
+                        $("#result").html("Checkbox is unchecked.");
+                        $.get('/api/message/unread/' + messageId)
+                    }
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                setInterval(function () {
+                    var count;
+                    $.get('/api/message/countmessages/', function (result) {
+                        count = result;
+                        $("#resultCount").html("(Olästa:" + count + ")");
+                    })
+                }, 3000);
+            })
+        </script>
+
+
+
+    }*@

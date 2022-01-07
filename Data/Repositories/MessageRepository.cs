@@ -18,11 +18,11 @@ namespace Data.Repositories
         }
         public MessageRepository()
         { }
-        public List<Message> GetAllMessages()
-        {
-            return _context.messages
-                .ToList();
-        }
+        //public List<Message> GetAllMessages()
+        //{
+        //    return _context.messages
+        //        .ToList();
+        //}
         public bool SetRead(int id)
         {
             var message = _context.messages.FirstOrDefault(x => x.Id == id);
@@ -41,13 +41,17 @@ namespace Data.Repositories
             return true;
         }
 
-        public int UnreadMessages()
+        //public int UnreadMessages()
+        //{
+        //    var list = _context.messages.Where(x => x.Läst == false).ToList();
+        //    return list.Count;
+        //}
+
+        public int UnreadMessages(string username)
         {
-            var list = _context.messages.Where(x => x.Läst == false).ToList();
+            var list = _context.messages.Where(x => x.Läst == false && x.UserName == username).ToList();
             return list.Count;
         }
-
-
     }
 }
 

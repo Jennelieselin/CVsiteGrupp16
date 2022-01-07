@@ -14,7 +14,7 @@ namespace Data.Repositories
 
         public List<Kompetens> GetListOfKompetens(int cvId)
         {
-            return db.kompetens.Where(x => x.CvId == cvId).ToList();
+            return db.Kompetens.Where(x => x.CvId == cvId).ToList();
         }
     }
 }

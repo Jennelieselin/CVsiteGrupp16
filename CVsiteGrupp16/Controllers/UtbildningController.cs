@@ -55,7 +55,7 @@ namespace CVsiteGrupp16.Controllers
         // GET: Utbildning/Edit/5
         public ActionResult Edit(int id)
         {
-            Utbildning inlagdUtbildning = db.utbildningar.Find(id);
+            Utbildning inlagdUtbildning = db.Utbildning.Find(id);
 
             return View(inlagdUtbildning);
         }
@@ -81,7 +81,7 @@ namespace CVsiteGrupp16.Controllers
         // GET: Utbildning/Delete/5
         public ActionResult Delete(int id)
         {
-            Utbildning inlagdUtbildning = db.utbildningar.Find(id);
+            Utbildning inlagdUtbildning = db.Utbildning.Find(id);
 
             return View(inlagdUtbildning);
         }
@@ -92,8 +92,8 @@ namespace CVsiteGrupp16.Controllers
         {
             try
             {
-                Utbildning utbildning = db.utbildningar.Find(id);
-                db.utbildningar.Remove(utbildning);
+                Utbildning utbildning = db.Utbildning.Find(id);
+                db.Utbildning.Remove(utbildning);
                 db.SaveChanges();
 
                 return RedirectToAction("Index", "Cv");

@@ -21,13 +21,13 @@ namespace Services
                 Namn = model.Namn,
                 CvId = cvId
             };
-            db.erfarenheter.Add(newErfarenhet);
+            db.Erfarenhet.Add(newErfarenhet);
             db.SaveChanges();
         }
 
         public void UpdateErfarenhet(Erfarenhet model)
         {
-            var dbErfarenhet = db.erfarenheter.FirstOrDefault(x => x.Id == model.Id);
+            var dbErfarenhet = db.Erfarenhet.FirstOrDefault(x => x.Id == model.Id);
             dbErfarenhet.Namn = model.Namn;
 
             db.SaveChanges();

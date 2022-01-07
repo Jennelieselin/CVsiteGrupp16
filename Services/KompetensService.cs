@@ -20,13 +20,13 @@ namespace Services
                 Namn = model.Namn,
                 CvId = cvId
             };
-            db.kompetens.Add(newCompetence);
+            db.Kompetens.Add(newCompetence);
             db.SaveChanges();
         }
 
         public void UpdateKompetens(Kompetens model)
         {
-            var dbCompetence = db.kompetens.FirstOrDefault(x => x.Id == model.Id);
+            var dbCompetence = db.Kompetens.FirstOrDefault(x => x.Id == model.Id);
             dbCompetence.Namn = model.Namn;
 
             db.SaveChanges();

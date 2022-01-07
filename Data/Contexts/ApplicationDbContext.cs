@@ -41,9 +41,9 @@ namespace Data.Contexts
 
         public DbSet<ApplicationUserProject> usersInProjects { get; set; }
 
-        public DbSet<Kompetens> kompetens { get; set; }
-        public DbSet<Utbildning> utbildning { get; set; }
-        public DbSet<Erfarenhet> erfarenhet { get; set; }
+        public DbSet<Kompetens> Kompetens { get; set; }
+        public DbSet<Utbildning> Utbildning { get; set; }
+        public DbSet<Erfarenhet> Erfarenhet { get; set; }
 
         public static ApplicationDbContext Create()
         {

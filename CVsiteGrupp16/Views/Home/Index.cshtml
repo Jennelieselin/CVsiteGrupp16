@@ -1,33 +1,65 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using CVsiteGrupp16.Models
+@using Data.Contexts
+@model Shared.Models.StartModel
+
+@{
+    ViewBag.Title = "Startsida";
 }
 
+@*<div class="jumbotron">
+        <h1>Senast tillagda projektet</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Läs mer &raquo;</a></p>
+    </div>*@
+
 <div class="jumbotron">
-    <h1>Senast tillagda projektet</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Läs mer &raquo;</a></p>
+
+    <h1>Senast tillagda projektet:</h1>
+
+    <table>
+        <tr>
+            <th>Projektnamn</th>
+            <th>Beskrivning</th>
+        </tr>
+
+
+        @using (var ctx = new ApplicationDbContext()) {
+            var senasteProjekt = ctx.projects.ToList().Last();
+
+        //foreach (var project in Model.AllaProjekt.OrderByDescending(x => x.Id))
+            
+            <tr>
+                <td>@senasteProjekt.Namn </td>
+                <td>@senasteProjekt.Beskrivning</td>
+            </tr>
+        }
+        
+    </table>
+
+    <p>@Html.ActionLink("Läs mer om projektet här", "MainIndex", "Project") </p>
+   
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>CV 1</h2>
-        <p>
-            Namn och bild
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Läs mer &raquo;</a></p>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>CV 1</h2>
+            <p>
+                Namn och bild
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Läs mer &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>CV 2</h2>
+            <p>Namn och bild</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Läs mer &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>CV 3</h2>
+            <p>Namn och bild</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Läs mer &raquo;</a></p>
+        </div>
     </div>
     <div class="col-md-4">
-        <h2>CV 2</h2>
-        <p>Namn och bild</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Läs mer &raquo;</a></p>
+        <h2>Skicka meddelande</h2>
+        <p>@Html.ActionLink("Skicka", "Create", "Message")</p>
     </div>
-    <div class="col-md-4">
-        <h2>CV 3</h2>
-        <p>Namn och bild</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Läs mer &raquo;</a></p>
-    </div>
-</div>
-<div class="col-md-4">
-    <h2>Skicka meddelande</h2>
-    <p>@Html.ActionLink("Skicka", "Create", "Message")</p>
-</div>

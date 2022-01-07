@@ -80,9 +80,9 @@
     <Compile Include="Contexts\MessageDbContext.cs" />
     <Compile Include="Contexts\ProjectDbContext.cs" />
     <Compile Include="Contexts\UsersProjectDbContext.cs" />
-    <Compile Include="Migrations\202201051513161_nyttallt.cs" />
-    <Compile Include="Migrations\202201051513161_nyttallt.designer.cs">
-      <DependentUpon>202201051513161_nyttallt.cs</DependentUpon>
+    <Compile Include="Migrations\202201061029098_NyttIgen.cs" />
+    <Compile Include="Migrations\202201061029098_NyttIgen.designer.cs">
+      <DependentUpon>202201061029098_NyttIgen.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUserProject.cs" />
@@ -105,8 +105,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201051513161_nyttallt.resx">
-      <DependentUpon>202201051513161_nyttallt.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201061029098_NyttIgen.resx">
+      <DependentUpon>202201061029098_NyttIgen.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

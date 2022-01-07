@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web.Mvc;
 using Services;
 using Microsoft.AspNet.Identity;
+using System.Web;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace CvSiteGrupp16.Controllers
 {
@@ -31,6 +33,33 @@ namespace CvSiteGrupp16.Controllers
                 projects = projects.Where(row => row.Namn.Contains(searchString));
             }
             return View(projects);
+        }
+
+
+        public ActionResult Join (int projectId)
+        {
+            try
+            {
+                var ctx = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
+                string user = User.Identity.GetUserId();
+
+                var projektDeltagare = new ApplicationUserProject()
+                {
+                    
+                    ProjectId = projectId,
+                    UserId = user,
+                    Username = User.Identity.Name
+                };
+                ctx.usersInProjects.Add(projektDeltagare);
+                ctx.SaveChanges();
+                //ViewBag.Message = "Du har nu gått med i projektet!";
+                return RedirectToAction("MainIndex");
+            }
+            catch
+            {
+                return View();
+            }
+
         }
 
         // GET: Project/Create

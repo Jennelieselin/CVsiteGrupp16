@@ -47,6 +47,8 @@
                 </td>
                 <td>
                     @Html.ActionLink("Medverkande i projektet", "Index", "UsersInProjects", new { projectId = item.Id }, null)
+                    @Html.ActionLink("Gå med i projekt", "Join", new { projectId = item.Id }, null)
+                    @*@Html.ActionLink("Gå med i projekt", "Join", "Project")*@
                 </td>
             </tr>
         }

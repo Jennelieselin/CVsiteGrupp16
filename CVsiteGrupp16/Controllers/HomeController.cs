@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Data.Contexts;
+using Data.Models;
+using Shared.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +13,19 @@ namespace CVsiteGrupp16.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            StartModel mymodel = new StartModel();
+            mymodel.AllaProjekt = GetProjects();
+            return View(mymodel);
+        }
+
+        public List<Project> GetProjects()
+        {
+            using(var ctx = new ProjectDbContext())
+            {
+                var projects = ctx.projects.ToList();
+                return projects;
+            }
+           
         }
 
         public ActionResult About()

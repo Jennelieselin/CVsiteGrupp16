@@ -9,9 +9,11 @@ namespace Shared.Models
 {
     public class StartModel
     {
-        public string ProjektBeskrivning { get; set; }
-        public string ProjektNamn { get; set; }
+        //public string ProjektBeskrivning { get; set; }
+        //public string ProjektNamn { get; set; }
         public List<CvProfil> ListOfCvs { get; set; }
+
+        public IEnumerable<Project> AllaProjekt { get; set; } 
 
     }
 }

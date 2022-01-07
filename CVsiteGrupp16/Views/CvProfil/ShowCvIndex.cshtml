@@ -4,6 +4,7 @@
     ViewBag.Title = "ShowCvIndex";
 }
 
+
 <h2>CV</h2>
 
 <div class="row">
@@ -14,17 +15,21 @@
 
     <div class="col-md-4">
         @if (@Model.ImagePath != null)
-        {
+         {
             var imagepath = "/UploadedImages/" + @Model.ImagePath;
-            <img src="@imagepath" class="imgSize" alt="Lägg till bild" />
-        }
+        <img src="@imagepath" class="imgSize" alt="Lägg till bild" />
+         }
     </div>
 
+    <div class="col-md-4">
+        <h2>Skicka meddelande</h2>
+        <p>@Html.ActionLink("Skicka", "Create", "Message", new { receiver = Model.UserName, cvId = Model.Id }, null)</p>
+    </div>
 </div>
 
 <br />
 
-@*<h2>Mina projekt</h2>
+<h2>Mina projekt</h2>
 
 <div>
     <table class="table">
@@ -34,22 +39,22 @@
             <th>Tillagt datum</th>
         </tr>
 
-        @foreach (var item in Model.ListOfProjects)
+        @foreach (var item in Model.ListOfProjekt)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AddedDate)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Namn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Beskrivning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datum)
+            </td>
+        </tr>
         }
     </table>
-</div>*@
+</div>
 
 <br />
 
@@ -59,11 +64,11 @@
     <table class="table">
         @foreach (var item in Model.ListOfErfarenhet)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Namn)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Namn)
+            </td>
+        </tr>
         }
     </table>
 </div>
@@ -76,11 +81,11 @@
     <table class="table">
         @foreach (var item in Model.ListOfUtbildning)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Namn)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Namn)
+            </td>
+        </tr>
         }
     </table>
 </div>
@@ -93,11 +98,11 @@
     <table class="table">
         @foreach (var item in Model.ListOfKompetens)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Namn)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Namn)
+            </td>
+        </tr>
         }
     </table>
 </div>

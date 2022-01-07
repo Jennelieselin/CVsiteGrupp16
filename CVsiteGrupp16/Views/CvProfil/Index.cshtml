@@ -1,51 +1,68 @@
-﻿@model IEnumerable<Data.Models.CvProfil>
+﻿@model Shared.Models.CvIndex
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Redigera profil</h2>
+<h2>Redigera mitt CV</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>@Html.DisplayNameFor(model => model.Namn): @Html.DisplayFor(model => model.Namn) </p>
+        <p>@Html.DisplayNameFor(model => model.Adress): @Html.DisplayFor(model => model.Adress)</p>
+        <p>@Html.DisplayNameFor(model => model.Privat): @Html.DisplayFor(model => model.Privat)</p>
+        <p>@Html.ActionLink("Uppdatera information", "EditInfo", new { @Model.Id })</p>
+    </div>
+
+    <div class="col-md-4">
+        @{ var imagepath = "/UploadedImages/" + @Model.ImagePath; }
+        <img src="@imagepath" class="imgSize" alt="Lägg till bild" />
+        <p>@Html.ActionLink("Uppdatera bild", "EditImg", new { @Model.Id })</p>
+    </div>
+</div>
+
+<br />
+
+<h2>Mina projekt</h2>
 
 <p>
-    @using (Html.BeginForm())
-    {
-    
-}
-    <p />
+    @Html.ActionLink("Lägg till projekt", "Create", "UserInProjects")
+</p>
+<div>
+    @Html.Partial("_ListProject")
+</div>
 
-    
-    
+<br />
 
-        <h2>Mina erfarenheten</h2>
+<h2>Mina erfarenheter</h2>
 
-        <p>
-            @Html.ActionLink("Lägg till tidigare yrken", "Create", "Erfarenhet")
-        </p>
-        <div>
-            @Html.Partial("_ListErfarenhet")
-        </div>
+<p>
+    @Html.ActionLink("Lägg till tidigare yrken", "Create", "Erfarenhet")
+</p>
+<div>
+    @Html.Partial("_ListErfarenhet")
+</div>
 
-        <br />
+<br />
 
-        <h2>Mina utbildningar</h2>
+<h2>Mina utbildningar</h2>
 
-        <p>
-            @Html.ActionLink("Lägg till utbildning", "Create", "Utbildning")
-        </p>
-        <div>
-            @Html.Partial("_ListUtbildning")
-        </div>
+<p>
+    @Html.ActionLink("Lägg till utbildning", "Create", "Utbildning")
+</p>
+<div>
+    @Html.Partial("_ListUtbildning")
+</div>
 
-        <br />
+<br />
 
-        <h2>Mina övriga kompetenser</h2>
+<h2>Mina övriga kompetenser</h2>
 
-        <p>
-            @Html.ActionLink("Lägg till kompetens", "Create", "Kompetens")
-        </p>
-        <div>
-            @Html.Partial("_ListKompetens")
-        </div>
+<p>
+    @Html.ActionLink("Lägg till kompetens", "Create", "Kompetens")
+</p>
+<div>
+    @Html.Partial("_ListKompetens")
+</div>
 
 
-    </table>

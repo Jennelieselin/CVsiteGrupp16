@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="CvProfilService.cs" />
     <Compile Include="ErfarenhetService.cs" />
+    <Compile Include="HomeService.cs" />
     <Compile Include="KompetensService.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="ProjectService.cs" />

@@ -44,7 +44,7 @@
             <img src="@imagePath" style="max-width: 100px; max-height: 120px" />
                 }
         <td>
-            @Html.ActionLink("Visa CV", "Index", new { id=item.Id }) |
+            @Html.ActionLink("Visa CV", "ShowCvIndex", "CvProfil" new { id=item.Id }) |
 
         </td>
     </tr>
@@ -52,7 +52,17 @@
 
 </table>
 
-
 <div>
-    @Html.ActionLink("Tillbaka", null, null, null, new { href = Request.UrlReferrer })
+    @{
+        var lastUrl = Request.UrlReferrer.ToString();
+        if (lastUrl.Contains("MainIndex"))
+        {
+        @Html.ActionLink("Tillbaka till projekt", "MainIndex", "Project")
+        }
+        if (lastUrl.Contains("UserIndex"))
+        {
+        @Html.ActionLink("Tillbaka till projekt", "UserIndex", "Project")
+        }
+    }
 </div>
+

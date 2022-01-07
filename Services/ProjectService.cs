@@ -49,5 +49,34 @@ namespace Services
             dbProject.Datum = projectModel.Datum;
             db.SaveChanges();
         }
+
+        public bool ProjectNameExists(ProjectModel projectModel)
+        {
+            var allProjectNames = db.projects.Select(row => row.Namn).ToList();
+            bool doesNameExists = false;
+            foreach (var name in allProjectNames)
+            {
+                if (projectModel.Namn.Equals(name))
+                {
+                    doesNameExists = true;
+                }
+            }
+            return doesNameExists;
+        }
+
+        public bool ProjectNameExistsDifferentId(Project project)
+        {
+            var allProjectsWithDifferentId = db.projects.Where(row => row.Id != project.Id).ToList();
+            var allProjectNames = allProjectsWithDifferentId.Select(row => row.Namn).ToList();
+            bool doesNameExists = false;
+            foreach (var name in allProjectNames)
+            {
+                if (project.Namn.Equals(name))
+                {
+                    doesNameExists = true;
+                }
+            }
+            return doesNameExists;
+        }
     }
 }

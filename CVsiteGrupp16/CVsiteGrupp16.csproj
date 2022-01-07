@@ -227,9 +227,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -253,7 +251,6 @@
     <Content Include="Views\Message\Create.cshtml" />
     <Content Include="Views\Message\Delete.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Erfarenhet\Delete.cshtml" />
     <Content Include="Views\Erfarenhet\Edit.cshtml" />
     <Content Include="Views\Erfarenhet\Create.cshtml" />
@@ -263,7 +260,6 @@
     <Content Include="Views\Utbildning\Create.cshtml" />
     <Content Include="Views\Utbildning\Edit.cshtml" />
     <Content Include="Views\Utbildning\Delete.cshtml" />
-    <Content Include="Views\CvProfil\Index.cshtml" />
     <Content Include="Views\CvProfil\EditImg.cshtml" />
     <Content Include="Views\CvProfil\EditInfo.cshtml" />
     <Content Include="Views\UserInProject\Index.cshtml" />
@@ -278,13 +274,16 @@
     <Content Include="Views\CvProfil\_ListUtbildning.cshtml" />
     <Content Include="Views\CvProfil\_ListErfarenhet.cshtml" />
     <Content Include="Views\CvProfil\_ListProject.cshtml" />
-    <Content Include="Views\CvProfil\ShowCvIndex.cshtml" />
     <Content Include="Views\CvProfil\SearchIndex.cshtml" />
+    <Content Include="Views\CvProfil\Index.cshtml" />
+    <Content Include="Views\CvProfil\ShowCvIndex.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_Project.cshtml" />
+    <Content Include="Views\Home\_CV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadedImages\" />
     <Folder Include="Views\MessageAPI\" />
-    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

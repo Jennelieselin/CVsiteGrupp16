@@ -1,0 +1,31 @@
+﻿@model Shared.Models.HomeModel
+
+<div>
+    @{
+        if (Model.ListOfCvs.Count > 0)
+        {
+        <div class="col-md-4">
+            <h2>@Html.DisplayFor(modelItem => Model.ListOfCvs[0].Name)</h2>
+            <p> @Html.DisplayFor(modelItem => Model.ListOfCvs[0].UserName)</p>
+            <p>@Html.ActionLink("VISA CV", "ShowCvIndex", "CVProfil", new { id = Model.ListOfCvs[0].Id }, null) </p>
+        </div>
+        }
+        if (Model.ListOfCvs.Count > 1 )
+        {
+        <div class="col-md-4">
+            <h2>@Html.DisplayFor(modelItem => Model.ListOfCvs[1].Name)</h2>
+            <p> @Html.DisplayFor(modelItem => Model.ListOfCvs[1].UserName)</p>
+            <p>@Html.ActionLink("VISA CV", "ShowCvIndex", "CVProfil", new { id = Model.ListOfCvs[1].Id }, null) </p>
+        </div>
+        }
+        if (Model.ListOfCvs.Count > 2)
+        {
+        <div class="col-md-4">
+            <h2>@Html.DisplayFor(modelItem => Model.ListOfCvs[2].Name)</h2>
+            <p> @Html.DisplayFor(modelItem => Model.ListOfCvs[2].UserName)</p>
+            <p>@Html.ActionLink("VISA CV", "ShowCvIndex", "CVProfil", new { id = Model.ListOfCvs[2].Id }, null) </p>
+        </div>
+        }
+    }
+</div>
+

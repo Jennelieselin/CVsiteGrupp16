@@ -1,0 +1,8 @@
+﻿@model Shared.Models.HomeModel
+
+<div class="jumbotron">
+    <h1>SENASTE PROJEKTET</h1>
+    <h2> @Html.DisplayFor(model => model.ProjektNamn) </h2>
+    <h3 class="lead"> @Html.DisplayFor(model => model.ProjektBeskrivning) </h3>
+    <p>@Html.ActionLink("LÄS MER OM PROJEKTET", "MainIndex", "Project", new { searchString = Model.ProjektNamn }, null) </p>
+</div>

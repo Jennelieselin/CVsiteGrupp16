@@ -14,8 +14,11 @@
 
 //namespace CVsiteGrupp16.Controllers
 //{
+//    [RoutePrefix("api/message")]
 //    public class MessageAPIController : ApiController
 //    {
+//        MessageService messageService = new MessageService();
+
 //        public MessageRepository messageRepository
 //        {
 //            get { return new MessageRepository(Request.GetOwinContext().Get<MessageDbContext>()); }
@@ -23,7 +26,7 @@
 //        MessageService messageService = new MessageService(System.Web.HttpContext.Current);
 
 //        [HttpGet]
-//        [Route("api/message/read/{id}")]
+//        [Route("/read/{id}")]
 //        public IHttpActionResult setRead(int id)
 //        {
 //            try
@@ -44,7 +47,7 @@
 //        }
 
 //        [HttpGet]
-//        [Route("api/message/unread/{id}")]
+//        [Route("/unread/{id}")]
 //        public IHttpActionResult setUnRead(int id)
 //        {
 //            try
@@ -67,16 +70,17 @@
 
 //        Använda för att sätta siffran till notiser??
 //        [HttpGet]
-//        [Route("api/message/countmessages")]
+//        [Route("countmessages")]
 //        public int CountUnreadMessages()
 //        {
-//            int count = messageRepository.UnreadMessages();
+//            string mottagare = User.Identity.Name;
+//            int count = messageRepository.UnreadMessages(mottagare);
 //            return count;
 //        }
 
 
 //        [HttpPost]
-//        [Route("api/message/create")]
+//        [Route("create")]
 //        public IHttpActionResult CreateMessage(MessageModel model)
 //        {
 //            var sender = "";

@@ -11,12 +11,14 @@ namespace Shared.Models
     {
         public int Id { get; set; }
         [Display(Name="Avsändare")]
+        [Required]
         public string Avsändare { get; set; }
         public bool Läst { get; set; }
         [Required]
         [Display(Name="Meddelande")]
         public string Content { get; set; }
-        public string UserName { get; set; }
+        [Display(Name ="Mottagare")]
+        public string Mottagare { get; set; }
 
     }
 }

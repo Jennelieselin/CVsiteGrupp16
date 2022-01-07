@@ -17,13 +17,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("CV sida", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("CVsidan", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Startsida", "Index", "Home")</li>
                     <li>@Html.ActionLink("Projekt", "MainIndex", "Project")</li>
-                    <li>@Html.ActionLink("Sök", "SearchIndex", "CvProfil")</li>
+                    <li>@Html.ActionLink("CV", "SearchIndex", "CvProfil")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -40,5 +40,31 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @if (User.Identity.IsAuthenticated)
+    {
+    <script>
+        //Hämtar antalet olästa meddelanden för den inloggade personen och visar resultatet i headern.
+        function unreadMessages() {
+            $.ajax({
+                url: '/api/message/countmessages',
+                method: 'GET',
+                success: function (result) {
+                    $("#resultCount").html("(Olästa:" + result + ")");
+                },
+                error: function () {
+                    window.alert('error');
+                }
+            });
+        }
+        /*Sätter ett intervall för hur ofta unreadMessages funktionen
+        ska köras, dessutom körs funktionen samtidigt som intervallet startar för
+        det inte ska ta 2 sekunder tills notiserna syns */
+        setInterval(function unreadmessages() {
+            unreadMessages();
+            return unreadMessages;
+        }(), 2000);
+
+    </script>
+    }
 </body>
 </html>

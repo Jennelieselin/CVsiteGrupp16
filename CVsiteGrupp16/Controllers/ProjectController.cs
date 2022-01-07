@@ -36,7 +36,7 @@ namespace CvSiteGrupp16.Controllers
         }
 
 
-        public ActionResult Join (int projectId)
+        public ActionResult Join(int projectId)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace CvSiteGrupp16.Controllers
 
                 var projektDeltagare = new ApplicationUserProject()
                 {
-                    
+
                     ProjectId = projectId,
                     UserId = user,
                     Username = User.Identity.Name
@@ -70,13 +70,23 @@ namespace CvSiteGrupp16.Controllers
 
         // POST: Project/Create
         [HttpPost]
-        public ActionResult Create(ProjectModel projectModel)
+        public ActionResult Create(ProjectModel model)
         {
             try
             {
-                Project newProject = ProjectService.CreateProject(projectModel, User.Identity.Name);
-                UsersInProjectsService.CreateUserInProject(newProject.Id, User.Identity.GetUserId(), User.Identity.Name);
-                return RedirectToAction("UserIndex");
+
+                if (ProjectService.ProjectNameExists(model) == false)
+                {
+
+                    Project newProject = ProjectService.CreateProject(model, User.Identity.Name);
+                    UsersInProjectsService.CreateUserInProject(newProject.Id, User.Identity.GetUserId(), User.Identity.Name);
+                    return RedirectToAction("UserIndex");
+                }
+                else
+                {
+                    ViewBag.Error = "Finns redan projekt med detta namn. Prova med annat namn.";
+                    return View();
+                }
             }
             catch
             {
@@ -85,29 +95,34 @@ namespace CvSiteGrupp16.Controllers
         }
 
         // GET: Project/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
-            }
+
             Project existingProject = db.projects.Find(id);
-            if (existingProject == null)
-            {
-                return HttpNotFound();
-            }
+
             return View(existingProject);
         }
 
         // POST: Project/Edit/5
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Project project)
         {
             try
             {
-                ProjectService.EditProject(project);
-                return RedirectToAction("UserIndex");
+                if (ProjectService.ProjectNameExistsDifferentId(project) == false)
+                {
+                    ProjectService.EditProject(project);
+                    return RedirectToAction("UserIndex");
+                }
+                else
+                {
+                    ViewBag.Error = "Projekt med detta namn finns redan.";
+                        return View();
+                }
+                
             }
             catch
             {
@@ -116,6 +131,7 @@ namespace CvSiteGrupp16.Controllers
         }
 
         // GET: Project/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

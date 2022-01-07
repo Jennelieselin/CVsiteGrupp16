@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Skapa nytt</h2>
+<h2>Anslut till projekt</h2>
 
 @if (ViewBag.Error != null)
 {
@@ -29,12 +29,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Skapa" class="btn btn-default" />
+                <input type="submit" value="Spara" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Tillbaka", "Index", "Cv")
+    @Html.ActionLink("Tillbaka", "Index", "CvProfil")
 </div>

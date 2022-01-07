@@ -4,11 +4,10 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Ta bort erfarenhet</h2>
 
-<h3>Vill du ta bort denna erfarenhet?</h3>
+<h3>Är du säker på att du vill ta bort denna erfarenhet?</h3>
 <div>
-    <h4>Erfarenhet</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,22 +18,15 @@
             @Html.DisplayFor(model => model.Namn)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CvId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CvId)
-        </dd>
-
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Radera" class="btn btn-default" /> |
-            @Html.ActionLink("Tillbaka till CV", "Index", "Cv")
+            <input type="submit" value="Ta bort" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka till mitt CV", "Index", "Cv")
         </div>
     }
 </div>

@@ -84,6 +84,10 @@
     <Compile Include="Migrations\202201051513161_nyttallt.designer.cs">
       <DependentUpon>202201051513161_nyttallt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201062228070_EmptyMigration.cs" />
+    <Compile Include="Migrations\202201062228070_EmptyMigration.designer.cs">
+      <DependentUpon>202201062228070_EmptyMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUserProject.cs" />
     <Compile Include="Models\CvProfil.cs" />
@@ -107,6 +111,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202201051513161_nyttallt.resx">
       <DependentUpon>202201051513161_nyttallt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201062228070_EmptyMigration.resx">
+      <DependentUpon>202201062228070_EmptyMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

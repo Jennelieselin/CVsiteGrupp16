@@ -54,7 +54,7 @@ namespace CVsiteGrupp16.Controllers
         // GET: Kompetens/Edit/5
         public ActionResult Edit(int id)
         {
-            Kompetens inlagdKompetens = db.kompetens.Find(id);
+            Kompetens inlagdKompetens = db.Kompetens.Find(id);
             return View(inlagdKompetens);
         }
 
@@ -78,7 +78,7 @@ namespace CVsiteGrupp16.Controllers
         // GET: Kompetens/Delete/5
         public ActionResult Delete(int id)
         {
-            Kompetens inlagdKompetens = db.kompetens.Find(id);
+            Kompetens inlagdKompetens = db.Kompetens.Find(id);
             return View(inlagdKompetens);
         }
 
@@ -88,8 +88,8 @@ namespace CVsiteGrupp16.Controllers
         {
             try
             {
-                Kompetens kompetens = db.kompetens.Find(id);
-                db.kompetens.Remove(kompetens);
+                Kompetens kompetens = db.Kompetens.Find(id);
+                db.Kompetens.Remove(kompetens);
                 db.SaveChanges();
 
                 return RedirectToAction("Index", "Cv");

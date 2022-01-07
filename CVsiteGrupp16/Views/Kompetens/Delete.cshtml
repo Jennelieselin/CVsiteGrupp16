@@ -4,11 +4,10 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Radera kompetens</h2>
+<h2>Ta bort kompetens</h2>
 
-<h3>Är du säker att du vill radera denna kompetens?</h3>
+<h3>Är du säker på att du vill ta bort denna kompetens?</h3>
 <div>
-    <h4>Kompetens</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,15 +18,15 @@
             @Html.DisplayFor(model => model.Namn)
         </dd>
 
-
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Radera" class="btn btn-default" /> |
-            @Html.ActionLink("Tillbaka till CV", "Index", "Cv")
+            <input type="submit" value="Ta bort" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka till mitt CV", "Index", "Cv")
         </div>
     }
 </div>

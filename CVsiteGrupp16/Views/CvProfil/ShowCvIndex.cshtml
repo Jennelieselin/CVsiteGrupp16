@@ -1,0 +1,104 @@
+﻿@model Shared.Models.CvIndex
+
+@{
+    ViewBag.Title = "ShowCvIndex";
+}
+
+<h2>CV</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>@Html.DisplayNameFor(model => model.Namn): @Html.DisplayFor(model => model.Namn) </p>
+        <p>@Html.DisplayNameFor(model => model.Adress): @Html.DisplayFor(model => model.Adress)</p>
+    </div>
+
+    <div class="col-md-4">
+        @if (@Model.ImagePath != null)
+        {
+            var imagepath = "/UploadedImages/" + @Model.ImagePath;
+            <img src="@imagepath" class="imgSize" alt="Lägg till bild" />
+        }
+    </div>
+
+</div>
+
+<br />
+
+@*<h2>Mina projekt</h2>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>Namn</th>
+            <th>Beskrivning</th>
+            <th>Tillagt datum</th>
+        </tr>
+
+        @foreach (var item in Model.ListOfProjects)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddedDate)
+                </td>
+            </tr>
+        }
+    </table>
+</div>*@
+
+<br />
+
+<h2>Mina erfarenheter</h2>
+
+<div>
+    <table class="table">
+        @foreach (var item in Model.ListOfErfarenhet)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Namn)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<br />
+
+<h2>Mina utbildningar</h2>
+
+<div>
+    <table class="table">
+        @foreach (var item in Model.ListOfUtbildning)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Namn)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<br />
+
+<h2>Mina övriga kompetenser</h2>
+
+<div>
+    <table class="table">
+        @foreach (var item in Model.ListOfKompetens)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Namn)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

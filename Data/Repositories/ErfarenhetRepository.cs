@@ -13,7 +13,7 @@ namespace Data.Repositories
 
         public List<Erfarenhet> GetListOfErfarenhet (int cvId)
         {
-            return db.erfarenheter.Where(x => x.CvId == cvId).ToList();
+            return db.Erfarenhet.Where(x => x.CvId == cvId).ToList();
         }
     }
 }

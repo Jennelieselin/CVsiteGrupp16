@@ -81,7 +81,7 @@ namespace Services
             db.SaveChanges();
         }
 
-        public CvIndex GetCvIndexVeiw(int id)
+        public CvIndex GetCvIndexView(int id)
         {
             CvProfil cv = db.cvs.Find(id);
             var newCvView = new CvIndex
@@ -92,7 +92,7 @@ namespace Services
                 Privat = cv.Privat,
                 ImagePath = cv.ImagePath,
                 Username = cv.Username,
-                ListOfProjects = projectRepository.GetListOfProjects(cv.Username),
+                ListOfProjekt = projectRepository.GetListOfProjects(cv.Username),
                 ListOfErfarenhet = erfarenhetRepository.GetListOfErfarenhet(cv.Id),
                 ListOfUtbildning = utbildningRepository.GetListOfUtbildning(cv.Id),
                 ListOfKompetens = kompetensRepository.GetListOfKompetens(cv.Id)

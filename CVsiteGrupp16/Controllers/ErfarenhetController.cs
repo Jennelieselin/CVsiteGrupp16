@@ -54,7 +54,7 @@ namespace CVsiteGrupp16.Controllers
         // GET: Erfarenhet/Edit/5
         public ActionResult Edit(int id)
         {
-            Erfarenhet inlagdErfarenhet = db.erfarenheter.Find(id);
+            Erfarenhet inlagdErfarenhet = db.Erfarenhet.Find(id);
             return View(inlagdErfarenhet);
         }
 
@@ -78,7 +78,7 @@ namespace CVsiteGrupp16.Controllers
         // GET: Erfarenhet/Delete/5
         public ActionResult Delete(int id)
         {
-            Erfarenhet inlagdErfarenhet = db.erfarenheter.Find(id);
+            Erfarenhet inlagdErfarenhet = db.Erfarenhet.Find(id);
             return View(inlagdErfarenhet);
         }
 
@@ -88,8 +88,8 @@ namespace CVsiteGrupp16.Controllers
         {
             try
             {
-                Erfarenhet erfarenhet = db.erfarenheter.Find(id);
-                db.erfarenheter.Remove(erfarenhet);
+                Erfarenhet erfarenhet = db.Erfarenhet.Find(id);
+                db.Erfarenhet.Remove(erfarenhet);
                 db.SaveChanges();
 
                 return RedirectToAction("Index", "CV");

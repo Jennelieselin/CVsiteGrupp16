@@ -264,7 +264,6 @@
     <Content Include="Views\Utbildning\Edit.cshtml" />
     <Content Include="Views\Utbildning\Delete.cshtml" />
     <Content Include="Views\CvProfil\Index.cshtml" />
-    <Content Include="Views\CvProfil\SearchIndex.cshtml" />
     <Content Include="Views\CvProfil\EditImg.cshtml" />
     <Content Include="Views\CvProfil\EditInfo.cshtml" />
     <Content Include="Views\UserInProject\Index.cshtml" />
@@ -275,6 +274,12 @@
     <Content Include="Views\Project\Create.cshtml" />
     <Content Include="Views\Project\Edit.cshtml" />
     <Content Include="Views\Project\Delete.cshtml" />
+    <Content Include="Views\CvProfil\_ListKompetens.cshtml" />
+    <Content Include="Views\CvProfil\_ListUtbildning.cshtml" />
+    <Content Include="Views\CvProfil\_ListErfarenhet.cshtml" />
+    <Content Include="Views\CvProfil\_ListProject.cshtml" />
+    <Content Include="Views\CvProfil\ShowCvIndex.cshtml" />
+    <Content Include="Views\CvProfil\SearchIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadedImages\" />

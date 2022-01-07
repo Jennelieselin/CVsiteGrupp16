@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Data.Contexts;
+
 
 namespace CVsiteGrupp16.Controllers
 {
@@ -15,13 +17,22 @@ namespace CVsiteGrupp16.Controllers
 
         private CvDbContext db = new CvDbContext();
 
-        
 
 
+        [Authorize]
         public ActionResult Index()
         {
-            var cv = db.cvs.Where(row => row.Username == User.Identity.Name).FirstOrDefault();
-            var visaCv = cvProfilService.GetCvIndexVeiw(cv.Id);
+            var cvs = db.cvs.Where(row => row.Username == User.Identity.Name).FirstOrDefault();
+            var visaCv = cvProfilService.GetCvIndexView(cvs.Id);
+            return View(visaCv);
+        }
+
+
+
+        public ActionResult ShowCvIndex(int id)
+        {
+            var cv = db.cvs.Find(id);
+            var visaCv = cvProfilService.GetCvIndexView(cv.Id);
             return View(visaCv);
         }
 

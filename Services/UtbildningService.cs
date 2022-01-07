@@ -20,13 +20,13 @@ namespace Services
                 Namn = model.Namn,
                 CvId = cvId
             };
-            db.utbildningar.Add(newUtbildning);
+            db.Utbildning.Add(newUtbildning);
             db.SaveChanges();
         }
 
         public void UpdateUtbildning(Utbildning model)
         {
-            var dbUtbildning = db.utbildningar.FirstOrDefault(x => x.Id == model.Id);
+            var dbUtbildning = db.Utbildning.FirstOrDefault(x => x.Id == model.Id);
             dbUtbildning.Namn = model.Namn;
 
             db.SaveChanges();

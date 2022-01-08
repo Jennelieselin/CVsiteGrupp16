@@ -41,7 +41,7 @@ namespace CVsiteGrupp16.Controllers
         {
             try
             {
-                var cv = db.cvs.Where(row => row.Username == User.Identity.Name).FirstOrDefault();
+                var cv = db.cvs.Where(row => row.UserName == User.Identity.Name).FirstOrDefault();
                 utbildningService.CreateUtbildning(model, cv.Id);
 
                 return RedirectToAction("Index", "Cv");

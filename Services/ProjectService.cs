@@ -20,14 +20,14 @@ namespace Services
             _httpcontext = httpcontext;
         }
 
-        public Project CreateProject(ProjectModel projectModel, string username)
+        public Project CreateProject(ProjectModel projectModel, string userName)
         {
             var nyttProjekt = new Project()
             {
                 Namn = projectModel.Namn,
                 Beskrivning = projectModel.Beskrivning,
                 Datum = projectModel.Datum,
-                Username = username
+                UserName = userName
             };
             db.projects.Add(nyttProjekt);
             db.SaveChanges();

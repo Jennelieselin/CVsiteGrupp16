@@ -13,7 +13,7 @@ namespace Data.Models
         public int Id { get; set; }
         public string Namn { get; set; }
         public string Beskrivning { get; set; }
-        public string Username { get; set; }
+        public string UserName { get; set; }
         public DateTime Datum { get; set; }
        
     }

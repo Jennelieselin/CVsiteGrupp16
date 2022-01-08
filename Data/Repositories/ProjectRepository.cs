@@ -19,10 +19,10 @@ namespace Data.Repositories
         }
 
 
-        public List<Project> GetListOfProjects(string username)
+        public List<Project> GetListOfProjects(string userName)
         {
             UsersProjectDbContext usersInProjectsDbContext = new UsersProjectDbContext();
-            var userInvolvedInProjects = usersInProjectsDbContext.usersInProjects.Where(m => m.Username.Equals(username)).ToList();
+            var userInvolvedInProjects = usersInProjectsDbContext.usersInProjects.Where(m => m.UserName.Equals(userName)).ToList();
 
             List<Project> listOfProjects = new List<Project>();
             foreach (var element in userInvolvedInProjects)

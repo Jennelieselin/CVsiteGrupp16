@@ -61,7 +61,7 @@ namespace Services
             {
                 ProjectId = newProjectId,
                 UserId = newUserId,
-                Username = newUserName
+                UserName = newUserName
             };
             db.usersInProjects.Add(newUserInProject);
             db.SaveChanges();
@@ -69,7 +69,7 @@ namespace Services
 
         public IQueryable<string> GetUsernameInProject(int projectId)
         {
-            var usernameInProject = from u in db.usersInProjects where u.ProjectId == projectId select u.Username;
+            var usernameInProject = from u in db.usersInProjects where u.ProjectId == projectId select u.UserName;
             return usernameInProject;
         }
     }

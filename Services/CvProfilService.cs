@@ -26,12 +26,12 @@ namespace Services
         {
             _httpcontext = httpcontext;
         }
-        public CvProfil CreateCv(string username)
+        public CvProfil CreateCv(string userName)
         {
             var newCv = new CvProfil()
             {
                 Namn = "Okänd",
-                Username = username,
+                UserName = userName,
                 Privat = true
             };
             return newCv;
@@ -91,8 +91,8 @@ namespace Services
                 Adress = cv.Adress,
                 Privat = cv.Privat,
                 ImagePath = cv.ImagePath,
-                Username = cv.Username,
-                ListOfProjekt = projectRepository.GetListOfProjects(cv.Username),
+                UserName = cv.UserName,
+                ListOfProjekt = projectRepository.GetListOfProjects(cv.UserName),
                 ListOfErfarenhet = erfarenhetRepository.GetListOfErfarenhet(cv.Id),
                 ListOfUtbildning = utbildningRepository.GetListOfUtbildning(cv.Id),
                 ListOfKompetens = kompetensRepository.GetListOfKompetens(cv.Id)
@@ -100,7 +100,7 @@ namespace Services
             return newCvView;
         }
 
-        public IQueryable<CvProfil> GetCvWithUserName(IQueryable<string> usernames, bool inloggad)
+        public IQueryable<CvProfil> GetCvWithUserName(IQueryable<string> userNames, bool inloggad)
         {
             List<CvProfil> listOfCvs = new List<CvProfil>();
             if (inloggad == true)
@@ -112,11 +112,11 @@ namespace Services
                 listOfCvs = db.cvs.Where(row => row.Privat == false).ToList();
             }
             List<CvProfil> listOfCvWithUserName = new List<CvProfil>();
-            foreach (var userName in usernames)
+            foreach (var userName in userNames)
             {
                 foreach (var Cv in listOfCvs)
                 {
-                    if (Cv.Username.Equals(userName))
+                    if (Cv.UserName.Equals(userName))
                     {
                         listOfCvWithUserName.Add(Cv);
                     }

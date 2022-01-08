@@ -42,7 +42,7 @@
     @RenderSection("scripts", required: false)
     @*@if (User.Identity.IsAuthenticated)
     {
-    <script>
+    @*<script>
         //Hämtar antalet olästa meddelanden för den inloggade personen och visar resultatet i headern.
         function unreadMessages() {
             $.ajax({
@@ -64,7 +64,12 @@
             return unreadMessages;
         }(), 2000);
 
+<<<<<<< HEAD
     </script>
     }*@
+=======
+    </script>*@
+    }
+>>>>>>> parent of ff7711b (Revert "Ändrat om vyn och försökt med UserName")
 </body>
 </html>

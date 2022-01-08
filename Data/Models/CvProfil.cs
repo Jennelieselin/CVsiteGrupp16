@@ -24,7 +24,7 @@ namespace Data.Models
         public string ImagePath { get; set; }
         [Required]
         [Display(Name = "Email")]
-        public string Username { get; set; }
+        public string UserName { get; set; }
     } 
 
 }

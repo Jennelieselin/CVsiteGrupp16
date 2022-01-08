@@ -40,7 +40,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @if (User.Identity.IsAuthenticated)
+    @*@if (User.Identity.IsAuthenticated)
     {
     <script>
         //Hämtar antalet olästa meddelanden för den inloggade personen och visar resultatet i headern.
@@ -65,6 +65,6 @@
         }(), 2000);
 
     </script>
-    }
+    }*@
 </body>
 </html>

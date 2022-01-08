@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class NyttIgen : DbMigration
+    public partial class funkaNu : DbMigration
     {
         public override void Up()
         {
@@ -14,9 +14,9 @@
                         Id = c.Int(nullable: false, identity: true),
                         Namn = c.String(),
                         Adress = c.String(),
-                        Username = c.String(),
-                        ImagePath = c.String(),
                         Privat = c.Boolean(nullable: false),
+                        ImagePath = c.String(),
+                        UserName = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -60,7 +60,7 @@
                         Id = c.Int(nullable: false, identity: true),
                         Namn = c.String(),
                         Beskrivning = c.String(),
-                        Username = c.String(),
+                        UserName = c.String(),
                         Datum = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
@@ -139,7 +139,7 @@
                     {
                         ProjectId = c.Int(nullable: false),
                         UserId = c.String(nullable: false, maxLength: 128),
-                        Username = c.String(nullable: false),
+                        UserName = c.String(nullable: false),
                     })
                 .PrimaryKey(t => new { t.ProjectId, t.UserId });
             

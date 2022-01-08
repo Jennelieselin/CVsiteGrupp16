@@ -20,7 +20,7 @@ namespace CvSiteGrupp16.Controllers
         // GET: Project
         public ActionResult UserIndex()
         {
-            var projects = db.projects.Where(row => row.UserName == User.Identity.Name);
+            var projects = db.projects.Where(row => row.Username == User.Identity.Name);
             return View(projects);
         }
 
@@ -48,7 +48,7 @@ namespace CvSiteGrupp16.Controllers
 
                     ProjectId = projectId,
                     UserId = user,
-                    UserName = User.Identity.Name
+                    Username = User.Identity.Name
                 };
                 ctx.usersInProjects.Add(projektDeltagare);
                 ctx.SaveChanges();

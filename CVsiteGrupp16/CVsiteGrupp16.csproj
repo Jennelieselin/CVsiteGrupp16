@@ -230,6 +230,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -275,13 +276,13 @@
     <Content Include="Views\CvProfil\_ListKompetens.cshtml" />
     <Content Include="Views\CvProfil\_ListUtbildning.cshtml" />
     <Content Include="Views\CvProfil\_ListErfarenhet.cshtml" />
+    <Content Include="Views\CvProfil\_ListProject.cshtml" />
     <Content Include="Views\CvProfil\SearchIndex.cshtml" />
     <Content Include="Views\CvProfil\Index.cshtml" />
     <Content Include="Views\CvProfil\ShowCvIndex.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_Project.cshtml" />
     <Content Include="Views\Home\_CV.cshtml" />
-    <Content Include="Views\CvProfil\_ListProjects.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadedImages\" />

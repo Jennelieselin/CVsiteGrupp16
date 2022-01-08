@@ -43,7 +43,7 @@ namespace CVsiteGrupp16.Controllers
             ProjectDbContext projectDb = new ProjectDbContext();
 
             var allProjects = projectDb.projects.ToList();
-            var allInvolvedProjects = db.usersInProjects.Where(m => m.UserName.Equals(User.Identity.Name)).ToList();
+            var allInvolvedProjects = db.usersInProjects.Where(m => m.Username.Equals(User.Identity.Name)).ToList();
 
             var allProjectsID = allProjects.Select(m => m.Id).ToList();
             var allInvolvedProjectsID = allInvolvedProjects.Select(m => m.ProjectId).ToList();

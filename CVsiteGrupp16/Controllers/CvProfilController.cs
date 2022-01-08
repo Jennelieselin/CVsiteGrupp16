@@ -22,7 +22,7 @@ namespace CVsiteGrupp16.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var cvs = db.cvs.Where(row => row.UserName == User.Identity.Name).FirstOrDefault();
+            var cvs = db.cvs.Where(row => row.Username == User.Identity.Name).FirstOrDefault();
             var visaCv = cvProfilService.GetCvIndexView(cvs.Id);
             return View(visaCv);
         }
@@ -68,9 +68,9 @@ namespace CVsiteGrupp16.Controllers
         }
 
         // GET: CvProfil/Create
-        public void Create(string userName)
+        public void Create(string username)
         {
-            var nyttCv = cvProfilService.CreateCv(userName);
+            var nyttCv = cvProfilService.CreateCv(username);
             db.cvs.Add(nyttCv);
             db.SaveChanges();
         }

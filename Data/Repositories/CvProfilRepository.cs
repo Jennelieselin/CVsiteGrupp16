@@ -11,7 +11,7 @@ namespace Data.Repositories
     {
         private CvDbContext db = new CvDbContext();
 
-        public List<CvProfil> GetListOfCvS(bool inloggad)
+        public List<CvProfil> GetListOfCv(bool inloggad)
         {
             if (inloggad == true)
             {

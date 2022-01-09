@@ -5,7 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  font-family: 'Times New Roman';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -88,7 +88,8 @@ sub {
   bottom: -0.25em;
 }
 img {
-  border: 0;
+  border: 2px;
+  border-color: #666;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -109,7 +110,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Times New Roman';
   font-size: 1em;
 }
 button,
@@ -264,20 +265,20 @@ th {
   }
 }
 @font-face {
-  font-family: "Glyphicons Halflings";
-  src: url("../fonts/glyphicons-halflings-regular.eot");
-  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+    font-family: "Times New Roman";
+   /* src: url("../fonts/glyphicons-halflings-regular.eot");
+    src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");*/
 }
 .glyphicon {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: "Glyphicons Halflings";
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: "Times New Roman";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .glyphicon-asterisk:before {
   content: "\002a";
@@ -1082,7 +1083,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Times New Roman";
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -1269,6 +1270,7 @@ h1,
 h2,
 .h2 {
   font-size: 30px;
+  
 }
 h3,
 .h3 {
@@ -1530,7 +1532,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: "Times New Roman";
 }
 code {
   padding: 2px 4px;
@@ -4240,10 +4242,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-top-right-radius: 0;
 }
 .navbar {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -4575,11 +4577,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-brand {
   color: #777;
 }
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #5e5e5e;
-  background-color: transparent;
-}
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        color: #5e5e5e;
+        background-color: transparent;
+    }
 .navbar-default .navbar-text {
   color: #777;
 }
@@ -6069,7 +6071,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Times New Roman";
   font-style: normal;
   font-weight: 400;
   line-height: 1.42857143;
@@ -6187,7 +6189,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Times New Roman";
   font-style: normal;
   font-weight: 400;
   line-height: 1.42857143;
@@ -6451,13 +6453,13 @@ button.close {
   right: 50%;
   margin-right: -10px;
 }
-.carousel-control .icon-prev,
-.carousel-control .icon-next {
-  width: 20px;
-  height: 20px;
-  font-family: serif;
-  line-height: 1;
-}
+    .carousel-control .icon-prev,
+    .carousel-control .icon-next {
+        width: 20px;
+        height: 20px;
+        font-family: "Times New Roman";
+        line-height: 1;
+    }
 .carousel-control .icon-prev:before {
   content: "\2039";
 }

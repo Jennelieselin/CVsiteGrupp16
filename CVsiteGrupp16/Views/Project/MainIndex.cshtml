@@ -10,14 +10,14 @@
     @using (Html.BeginForm())
     {
     <p>
-        Projektnamn: @Html.TextBox("searchString") <br />
+        Projektnamn: @Html.TextBox("searchString") 
         <input type="submit" value="Sök" />
     </p>
 }
     <p />
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Klicka här för att skapa nytt projekt", "Create")
     </p>
     <table class="table">
         <tr>
@@ -35,22 +35,23 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Namn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Beskrivning)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Datum)
-                </td>
-                <td>
-                    @Html.ActionLink("Medverkande i projektet", "Index", "UserInProject", new { projectId = item.Id }, null)
-                    @Html.ActionLink("Gå med i projekt", "Join", new { projectId = item.Id }, null)
-                    @*@Html.ActionLink("Gå med i projekt", "Join", "Project")*@
-                </td>
-            </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Namn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Beskrivning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.ActionLink("Se vilka som medverkade i projektet", "Index", "UserInProject", new { projectId = item.Id }, null)
+        </td>
+        <td>
+            @Html.ActionLink("Gå med i projektet", "Join", new { projectId = item.Id }, null)
+        </td>
+    </tr>
         }
 
     </table>

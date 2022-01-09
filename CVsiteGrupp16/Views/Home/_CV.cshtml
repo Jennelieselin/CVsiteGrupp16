@@ -7,7 +7,7 @@
         <div class="col-md-4">
             <h2>@Html.DisplayFor(modelItem => Model.ListOfCvs[0].Namn)</h2>
             <p> @Html.DisplayFor(modelItem => Model.ListOfCvs[0].UserName)</p>
-            <p>@Html.ActionLink("VISA CV", "ShowCvIndex", "CVProfil", new { id = Model.ListOfCvs[0].Id }, null) </p>
+            <p>@Html.ActionLink("Klicka här för att visa CV", "ShowCvIndex", "CVProfil", new { id = Model.ListOfCvs[0].Id }, null) </p>
         </div>
         }
         if (Model.ListOfCvs.Count > 1 )
@@ -15,7 +15,7 @@
         <div class="col-md-4">
             <h2>@Html.DisplayFor(modelItem => Model.ListOfCvs[1].Namn)</h2>
             <p> @Html.DisplayFor(modelItem => Model.ListOfCvs[1].UserName)</p>
-            <p>@Html.ActionLink("VISA CV", "ShowCvIndex", "CVProfil", new { id = Model.ListOfCvs[1].Id }, null) </p>
+            <p>@Html.ActionLink("Klicka här för att visa CV", "ShowCvIndex", "CVProfil", new { id = Model.ListOfCvs[1].Id }, null) </p>
         </div>
         }
         if (Model.ListOfCvs.Count > 2)
@@ -23,7 +23,7 @@
         <div class="col-md-4">
             <h2>@Html.DisplayFor(modelItem => Model.ListOfCvs[2].Namn)</h2>
             <p> @Html.DisplayFor(modelItem => Model.ListOfCvs[2].UserName)</p>
-            <p>@Html.ActionLink("VISA CV", "ShowCvIndex", "CVProfil", new { id = Model.ListOfCvs[2].Id }, null) </p>
+            <p>@Html.ActionLink("Klicka här för att visa CV", "ShowCvIndex", "CVProfil", new { id = Model.ListOfCvs[2].Id }, null) </p>
         </div>
         }
     }

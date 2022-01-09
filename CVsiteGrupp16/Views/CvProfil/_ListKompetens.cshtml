@@ -8,8 +8,8 @@
             @Html.DisplayFor(modelItem => item.Namn)
         </td>
         <td>
-            @Html.ActionLink("Ändra", "Edit", "Kompetens", new { id = item.Id }, null) |
-            @Html.ActionLink("Ta bort", "Delete", "Kompetens", new { id = item.Id }, null)
+            @Html.ActionLink("Redigera kompetens", "Edit", "Kompetens", new { id = item.Id }, null) |
+            @Html.ActionLink("Radera kompetens", "Delete", "Kompetens", new { id = item.Id }, null)
         </td>
     </tr>
     }

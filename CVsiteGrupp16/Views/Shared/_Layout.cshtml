@@ -17,13 +17,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("CVsidan", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+               
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Startsida", "Index", "Home")</li>
+                    <li>@Html.ActionLink("CV:n", "SearchIndex", "CvProfil")</li>
                     <li>@Html.ActionLink("Projekt", "MainIndex", "Project")</li>
-                    <li>@Html.ActionLink("CV", "SearchIndex", "CvProfil")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

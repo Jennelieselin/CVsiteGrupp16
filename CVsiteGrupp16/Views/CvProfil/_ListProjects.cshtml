@@ -4,13 +4,16 @@
 
     <tr>
         <th>
-            Namn
+            Projektnamn
         </th>
         <th>
             Beskrivning
         </th>
         <th>
-            Tillagt datum
+            Utfördes (datum)
+        </th>
+        <th>
+             
         </th>
     </tr>
 
@@ -27,7 +30,7 @@
             @Html.DisplayFor(modelItem => item.Datum)
         </td>
         <td>
-            @Html.ActionLink("Ta bort", "Delete", "UserInProject", new { id = item.Id }, null)
+            @Html.ActionLink("Radera projekt från CV-sidan", "Delete", "UserInProject", new { id = item.Id }, null)
         </td>
     </tr>
     }

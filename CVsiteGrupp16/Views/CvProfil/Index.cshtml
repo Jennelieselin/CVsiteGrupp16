@@ -16,14 +16,17 @@
 
     <div class="col-md-4">
         @{ var imagepath = "/UploadedImages/" + @Model.ImagePath; }
-        <img src="@imagepath" class="imgSize" alt="Lägg till bild" />
+
+        <img src="@imagepath" style="max-width: 100px; max-height: 120px" />
+
+        @*<img src="@imagepath" class="imgSize" alt="Lägg till bild" />*@
         <p>@Html.ActionLink("Uppdatera bild", "EditImg", new { @Model.Id })</p>
     </div>
 </div>
 
 <br />
 
-<h2>Mina projekt</h2>
+<h2>Projekt</h2>
 
 <p>
     @Html.ActionLink("Lägg till projekt", "MainIndex", "Project")
@@ -35,10 +38,10 @@
 
 <br />
 
-<h2>Mina erfarenheter</h2>
+<h2>Erfarenheter</h2>
 
 <p>
-    @Html.ActionLink("Lägg till tidigare yrken", "Create", "Erfarenhet")
+    @Html.ActionLink("Lägg till yrkeserfarenhet", "Create", "Erfarenhet")
 </p>
 <div>
     @Html.Partial("_ListErfarenhet")
@@ -46,10 +49,10 @@
 
 <br />
 
-<h2>Mina utbildningar</h2>
+<h2>Utbildningar</h2>
 
 <p>
-    @Html.ActionLink("Lägg till utbildning", "Create", "Utbildning")
+    @Html.ActionLink("Lägg till ny utbildning", "Create", "Utbildning")
 </p>
 <div>
     @Html.Partial("_ListUtbildning")
@@ -57,10 +60,10 @@
 
 <br />
 
-<h2>Mina övriga kompetenser</h2>
+<h2>Kompetenser</h2>
 
 <p>
-    @Html.ActionLink("Lägg till kompetens", "Create", "Kompetens")
+    @Html.ActionLink("Lägg till ny kompetens", "Create", "Kompetens")
 </p>
 <div>
     @Html.Partial("_ListKompetens")

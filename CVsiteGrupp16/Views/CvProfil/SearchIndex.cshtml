@@ -4,18 +4,17 @@
 @{
     ViewBag.Title = "SearchIndex";
 }
-<h2>Alla cvn</h2>
+<h2>Registrerade Cv:n</h2>
 
 <p>
     @using (Html.BeginForm())
     {
     <p>
-        Namn: @Html.TextBox("searchString") <br />
+        Namn: @Html.TextBox("searchString") 
         <input type="submit" value="Sök" />
     </p>
 }
     <p />
-
     <br />
 
     <table class="table">
@@ -32,6 +31,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Adress)
             </th>
+            <th>
+                
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -44,7 +46,6 @@
                     @if (item.ImagePath != null)
                     {
                         var imagePath = "/UploadedImages/" + item.ImagePath;
-                        //<img src="@imagePath" class="imgSize" />
                         <img src="@imagePath" style="max-width: 100px; max-height: 120px" />
                     }
                 </td>
@@ -55,7 +56,7 @@
                     @Html.DisplayFor(modelItem => item.Adress)
                 </td>
                 <td>
-                    @Html.ActionLink("Visa CV", "ShowCvIndex", new { item.Id })
+                    @Html.ActionLink("Gå vidare till CV", "ShowCvIndex", new { item.Id })
                 </td>
             </tr>
         }

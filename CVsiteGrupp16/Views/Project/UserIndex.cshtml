@@ -35,9 +35,12 @@
             @Html.DisplayFor(modelItem => item.Datum)
         </td>
         <td>
-            @Html.ActionLink("Ändra", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Radera", "Delete", new { id=item.Id }) |
-            @Html.ActionLink("Användare i detta projekt", "Index", "UserInProject", new { id=item.Id })
+            @Html.ActionLink("Redigera projekt", "Edit", new { id = item.Id }) |
+            
+            @Html.ActionLink("Radera projekt", "Delete", new { id = item.Id }) |
+
+            @Html.ActionLink("Se vilka som medverkade i projektet", "Index", "UserInProject", new { projectId = item.Id }, null)
+
         </td>
     </tr>
 }

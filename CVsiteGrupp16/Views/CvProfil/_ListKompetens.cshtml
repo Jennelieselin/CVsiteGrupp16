@@ -1,19 +1,16 @@
 ﻿@model Shared.Models.CvIndex
 
-
 <table class="table">
     @foreach (var item in Model.ListOfKompetens)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Namn)
-            </td>
-            <td>
-                @Html.ActionLink("Ändra", "Edit", "Kompetens", new { id = item.Id }, null) |
-                @Html.ActionLink("Ta bort", "Delete", "Kompetens", new { id = item.Id }, null)
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Namn)
+        </td>
+        <td>
+            @Html.ActionLink("Ändra", "Edit", "Kompetens", new { id = item.Id }, null) |
+            @Html.ActionLink("Ta bort", "Delete", "Kompetens", new { id = item.Id }, null)
+        </td>
+    </tr>
     }
 </table>
-
-

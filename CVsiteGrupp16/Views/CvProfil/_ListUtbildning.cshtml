@@ -3,14 +3,14 @@
 <table class="table">
     @foreach (var item in Model.ListOfUtbildning)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Namn)
-            </td>
-            <td>
-                @Html.ActionLink("Ändra", "Edit", "Utbildning", new { id = item.Id }, null) |
-                @Html.ActionLink("Ta bort", "Delete", "Utbildning", new { id = item.Id }, null)
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Namn)
+        </td>
+        <td>
+            @Html.ActionLink("Ändra", "Edit", "Utbildning", new { id = item.Id }, null) |
+            @Html.ActionLink("Ta bort", "Delete", "Utbildning", new { id = item.Id }, null)
+        </td>
+    </tr>
     }
 </table>

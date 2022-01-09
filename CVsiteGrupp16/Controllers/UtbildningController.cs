@@ -44,7 +44,7 @@ namespace CVsiteGrupp16.Controllers
                 var cv = db.cvs.Where(row => row.UserName == User.Identity.Name).FirstOrDefault();
                 utbildningService.CreateUtbildning(model, cv.Id);
 
-                return RedirectToAction("Index", "Cv");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {
@@ -70,7 +70,7 @@ namespace CVsiteGrupp16.Controllers
                 utbildningService.UpdateUtbildning(model);
 
 
-                return RedirectToAction("Index", "Cv");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {
@@ -96,7 +96,7 @@ namespace CVsiteGrupp16.Controllers
                 db.Utbildning.Remove(utbildning);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "Cv");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {

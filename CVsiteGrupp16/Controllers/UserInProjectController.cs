@@ -73,7 +73,7 @@ namespace CVsiteGrupp16.Controllers
             {
                 userProjectService.CreateUserInProject(Int32.Parse(SelectedProjectId), User.Identity.GetUserId(), User.Identity.Name);
 
-                return RedirectToAction("Index", "CV");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {
@@ -118,7 +118,7 @@ namespace CVsiteGrupp16.Controllers
             {
                 userProjectService.DeleteUserInProject(model.Id);
 
-                return RedirectToAction("Index", "Cv");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {

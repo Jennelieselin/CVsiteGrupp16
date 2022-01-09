@@ -43,7 +43,7 @@ namespace CVsiteGrupp16.Controllers
                 var cv = db.cvs.Where(row => row.UserName == User.Identity.Name).FirstOrDefault();
                 erfarenhetService.CreateErfarenhet(model, cv.Id);
 
-                return RedirectToAction("Index", "CV");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {
@@ -67,7 +67,7 @@ namespace CVsiteGrupp16.Controllers
             {
                 erfarenhetService.UpdateErfarenhet(model);
 
-                return RedirectToAction("Index", "CV");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {
@@ -92,7 +92,7 @@ namespace CVsiteGrupp16.Controllers
                 db.Erfarenhet.Remove(erfarenhet);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "CV");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {

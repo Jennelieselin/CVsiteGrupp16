@@ -43,7 +43,7 @@ namespace CVsiteGrupp16.Controllers
                 var cv = db.cvs.Where(row => row.UserName == User.Identity.Name).FirstOrDefault();
                 kompetensService.CreateKompetens(model, cv.Id);
 
-                return RedirectToAction("Index", "Cv");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {
@@ -67,7 +67,7 @@ namespace CVsiteGrupp16.Controllers
             {
                 kompetensService.UpdateKompetens(model);
 
-                return RedirectToAction("Index", "Cv");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {
@@ -92,7 +92,7 @@ namespace CVsiteGrupp16.Controllers
                 db.Kompetens.Remove(kompetens);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "Cv");
+                return RedirectToAction("Index", "CvProfil");
             }
             catch
             {

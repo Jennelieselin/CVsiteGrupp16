@@ -15,10 +15,11 @@
 
     <div class="col-md-4">
         @if (@Model.ImagePath != null)
-         {
-            var imagepath = "/UploadedImages/" + @Model.ImagePath;
-        <img src="@imagepath" class="imgSize" alt="Lägg till bild" />
-         }
+                {
+                    var imagepath = "/UploadedImages/" + @Model.ImagePath;
+                    <img src = "@imagepath" class="imgSize" alt="Lägg till bild" />
+            
+        }
     </div>
 
     <div class="col-md-4">

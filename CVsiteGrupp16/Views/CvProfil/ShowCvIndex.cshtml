@@ -5,7 +5,7 @@
 }
 
 
-<h2>CV</h2>
+<h2>CV-PROFIL</h2>
 
 <div class="row">
     <div class="col-md-4">
@@ -15,10 +15,10 @@
 
     <div class="col-md-4">
         @if (@Model.ImagePath != null)
-                {
-                    var imagepath = "/UploadedImages/" + @Model.ImagePath;
-                    <img src = "@imagepath" class="imgSize" alt="Lägg till bild" />
-            
+        {
+            var imagepath = "/UploadedImages/" + @Model.ImagePath;
+            //@*<img src="@imagepath" class="imgSize" alt="Lägg till bild" />*@
+            <img src="@imagepath" style="max-width: 100px; max-height: 120px" class="imgSize" alt="Bild saknas"/>
         }
     </div>
 
@@ -30,14 +30,14 @@
 
 <br />
 
-<h2>Mina projekt</h2>
+<h2>Projekt</h2>
 
 <div>
     <table class="table">
         <tr>
-            <th>Namn</th>
+            <th>Projektnamn</th>
             <th>Beskrivning</th>
-            <th>Tillagt datum</th>
+            <th>Utfördes (datum)</th>
         </tr>
 
         @foreach (var item in Model.ListOfProjekt)
@@ -59,7 +59,7 @@
 
 <br />
 
-<h2>Mina erfarenheter</h2>
+<h2>Erfarenheter</h2>
 
 <div>
     <table class="table">
@@ -76,7 +76,7 @@
 
 <br />
 
-<h2>Mina utbildningar</h2>
+<h2>Utbildningar</h2>
 
 <div>
     <table class="table">
@@ -93,7 +93,7 @@
 
 <br />
 
-<h2>Mina övriga kompetenser</h2>
+<h2>Kompetenser</h2>
 
 <div>
     <table class="table">

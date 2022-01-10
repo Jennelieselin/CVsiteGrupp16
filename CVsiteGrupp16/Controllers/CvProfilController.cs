@@ -69,7 +69,7 @@ namespace CVsiteGrupp16.Controllers
             return View();
         }
 
-        // GET: CvProfil/Create
+        // CV skapas autormatiskt när ny användare registreras, anropas via AccountController
         public void Create(string userName)
         {
             var nyttCv = cvProfilService.CreateCv(userName);

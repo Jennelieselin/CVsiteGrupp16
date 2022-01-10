@@ -81,19 +81,19 @@ namespace CVsiteGrupp16.Controllers
 
 
         [System.Web.Http.HttpPost]
-        [System.Web.Http.Route("create")]
+        [System.Web.Http.Route("CreateMessage")]
         public IHttpActionResult CreateMessage(MessageModel model)
         {
-            var sender = "";
+            var avsändare = "";
             if (User.Identity.IsAuthenticated)
             {
-                sender = User.Identity.Name;
+                avsändare = User.Identity.Name;
             }
             else
             {
-                sender = model.Avsändare;
+                avsändare = model.Avsändare;
             }
-            var succeded = messageService.SaveNewMessage(model, sender);
+            var succeded = messageService.SaveNewMessage(model, avsändare);
 
             if (succeded == 0)
             {

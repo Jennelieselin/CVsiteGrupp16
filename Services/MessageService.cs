@@ -19,7 +19,7 @@ namespace Services
             //    _httpcontext = httpContext;
             //}
 
-            public int SaveNewMessage(MessageModel model, string sender)
+            public int SaveNewMessage(MessageModel model, string avsändare)
             {
                 try
                 {
@@ -28,12 +28,12 @@ namespace Services
 
                         var newMessage = new Message()
                         {
-                            Avsändare = sender,
+                            Avsändare = avsändare,
                             Datum = DateTime.Now,
                             Läst = model.Läst,
                             Content = model.Content,
                             //UserName = "xxx"
-                            UserName = model.Mottagare
+                            Mottagare = model.Mottagare
                         };
 
 

@@ -33,12 +33,12 @@ namespace CVsiteGrupp16.Controllers
         //}
 
 
-        public ActionResult Create(string mottagare, int id)
+        public ActionResult Create(string mottagare, int CVId)
         {
             var model = new MessageModel();
             model.Mottagare = mottagare;
-            model.Id = id;
-            return View();
+            model.Id = CVId;
+            return View(model);
         }
 
 

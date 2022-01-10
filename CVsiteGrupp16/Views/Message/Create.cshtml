@@ -1,4 +1,5 @@
 ﻿@using CVsiteGrupp16.Controllers
+@using Data.Models
 @model Shared.Models.MessageModel
 
 @{
@@ -7,98 +8,97 @@
 
 <h2>Skicka meddelande</h2>
 
-@*@using (Html.BeginForm(null, null, new { @id = string.Empty }, FormMethod.Post, new { @id = "MessageForm" }))*@
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new {@id = "MessageForm"}))
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "MessageForm" }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Mottagare, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.Mottagare)
-                @Html.HiddenFor(model => model.Mottagare)
-                @Html.ValidationMessageFor(model => model.Mottagare, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @if (User.Identity.IsAuthenticated)
-        {
-            <div class="form-group">
-                @Html.LabelFor(model => model.Avsändare, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(user => User.Identity.Name)
-                </div>
-            </div>
-        }
-        else
-        {
-            <div class="form-group">
-                @Html.LabelFor(model => model.Avsändare, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Avsändare, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Avsändare, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-        }
-        <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-
-        <div class="form-group">
-            <p id="messageText"></p>
-        </div>
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Skicka" id="createMessage" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.UserName)
+            @Html.HiddenFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.Avsändare, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(user => User.Identity.Name)
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.Avsändare, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Avsändare, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Avsändare, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    }
+    <div class="form-group">
+        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <input type="text" class="hidden" id="mottagare" value="@Model.UserName" />
+    <input type="text" class="hidden" id="avsändare" value="@Model.Avsändare" />
+
+    <div class="form-group">
+        <p id="messageText"></p>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Skicka" id="createMessage" />
+
+        </div>
+    </div>
+</div>
 }
 
 @Html.ActionLink("Tillbaka", "ShowCvIndex", "CvProfil", new { id = Model.Id }, null)
-
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
         $('#createMessage').click(function (e) {
-            e.preventDefault();
+ 
             var data = $('#MessageForm').serialize();
-           // if (!window.confirm('Vill du skicka ett meddelande ?' + data)) return;
+            var avsändare = $('#avsändare').val();
+            var mottagare = $('#mottagare').val();
+
             $.ajax({
-                url: '/api/message/create',
+                url: "/api/CreateMessage/",
                 method: 'POST',
-                data: data,
+                data: { Avsändare: avsändare, Content: data, UserName: mottagare },
                 success: function () {
                     alert('Skickat!')
                     window.location.reload();
                 },
-                error: function () {
+                error: function (e) {
                     window.alert('Kunde inte skicka meddelandet');
                 }
             });
-        })
 
+        })
     </script>
 }
+

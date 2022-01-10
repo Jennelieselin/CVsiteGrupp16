@@ -12,12 +12,7 @@ namespace Services
 {
         public class MessageService
         {
-            //private readonly HttpContext _httpcontext;
-            //private MessageDbContext db = new MessageDbContext();
-            //public MessageService(HttpContext httpContext)
-            //{
-            //    _httpcontext = httpContext;
-            //}
+           
 
             public int SaveNewMessage(MessageModel model, string avsändare)
             {
@@ -32,8 +27,7 @@ namespace Services
                             Datum = DateTime.Now,
                             Läst = model.Läst,
                             Content = model.Content,
-                            //UserName = "xxx"
-                            UserName = model.Mottagare
+                            UserName = model.UserName
                         };
 
 

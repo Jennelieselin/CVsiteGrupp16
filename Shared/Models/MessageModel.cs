@@ -18,7 +18,7 @@ namespace Shared.Models
         [Display(Name="Meddelande")]
         public string Content { get; set; }
         [Display(Name ="Mottagare")]
-        public string Mottagare { get; set; }
+        public string UserName { get; set; }
 
     }
 }

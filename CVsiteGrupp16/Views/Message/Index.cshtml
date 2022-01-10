@@ -88,34 +88,3 @@
 
 
 
-@*@section scripts{
-        <script>
-            $(document).ready(function () {
-                $('input[type="checkbox"]').click(function () {
-                    var messageId = $(this).data('id');
-                    if ($(this).is(":checked")) {
-                        $("#result").html("Checkbox is checked." + messageId);
-                        $.get('/api/message/read/' + messageId)
-                    }
-                    else if ($(this).is(":not(:checked)")) {
-                        $("#result").html("Checkbox is unchecked.");
-                        $.get('/api/message/unread/' + messageId)
-                    }
-                });
-            });
-        </script>
-        <script>
-            $(document).ready(function () {
-                setInterval(function () {
-                    var count;
-                    $.get('/api/message/countmessages/', function (result) {
-                        count = result;
-                        $("#resultCount").html("(Olästa:" + count + ")");
-                    })
-                }, 3000);
-            })
-        </script>
-
-
-
-    }*@

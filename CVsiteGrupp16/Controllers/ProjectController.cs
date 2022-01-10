@@ -52,9 +52,7 @@ namespace CvSiteGrupp16.Controllers
                 };
                 ctx.usersInProjects.Add(projektDeltagare);
                 ctx.SaveChanges();
-                //ViewBag.Message = "Du har nu gått med i projektet!";
                 return RedirectToAction("Index", "CvProfil");
-                //return RedirectToAction("MainIndex");
             }
             catch
             {

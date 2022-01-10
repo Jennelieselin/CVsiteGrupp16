@@ -6,7 +6,7 @@ using System.Web.Http;
 
 namespace CVsiteGrupp16.App_Start
 {
-    public class WebAPIConfig
+    public class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {

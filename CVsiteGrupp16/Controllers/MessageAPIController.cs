@@ -9,25 +9,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Http;
-
 
 namespace CVsiteGrupp16.Controllers
 {
-    //[System.Web.Http.RoutePrefix("api/message")]
+
     public class MessageAPIController : ApiController
     {
         MessageService messageService = new MessageService();
 
         public MessageRepository messageRepository
         {
-            get { return new MessageRepository(Request.GetOwinContext().Get<MessageDbContext>()); }
+          
+           get { return new MessageRepository(Request.GetOwinContext().Get<MessageDbContext>()); }
         }
         
-
-        [System.Web.Http.HttpGet]
-        [System.Web.Http.Route("/read/{id}")]
+         [Route("read/{id}")]
+        [HttpGet]
         public IHttpActionResult setRead(int id)
         {
             try
@@ -47,8 +45,8 @@ namespace CVsiteGrupp16.Controllers
             }
         }
 
-        [System.Web.Http.HttpGet]
-        [System.Web.Http.Route("/unread/{id}")]
+        [Route("unread/{id}")]
+        [HttpGet] 
         public IHttpActionResult setUnRead(int id)
         {
             try
@@ -69,9 +67,8 @@ namespace CVsiteGrupp16.Controllers
         }
 
 
-        //Använda för att sätta siffran till notiser??
-        [System.Web.Http.HttpGet]
-        [System.Web.Http.Route("countmessages")]
+        [Route("api/countmessages/")]
+        [HttpGet]
         public int CountUnreadMessages()
         {
             string mottagare = User.Identity.Name;
@@ -79,9 +76,9 @@ namespace CVsiteGrupp16.Controllers
             return count;
         }
 
-
-        [System.Web.Http.HttpPost]
-        [System.Web.Http.Route("api/message/create")]
+        [Route("api/CreateMessage/")]
+     
+        [HttpPost]
         public IHttpActionResult CreateMessage(MessageModel model)
         {
             var avsändare = "";
@@ -93,6 +90,7 @@ namespace CVsiteGrupp16.Controllers
             {
                 avsändare = model.Avsändare;
             }
+       
             var succeded = messageService.SaveNewMessage(model, avsändare);
 
             if (succeded == 0)

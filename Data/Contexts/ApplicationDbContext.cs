@@ -29,9 +29,7 @@ namespace Data.Contexts
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        //hejhej
-        //hej på dig
-        //en tredje hej
+ 
 
         public DbSet<Project> projects { get; set; }
 

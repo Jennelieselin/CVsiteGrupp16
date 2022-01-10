@@ -44,7 +44,7 @@ namespace Services
             db.SaveChanges();
         }
 
-        // Raderar de rader i tabellen "UsersInProjects" som har ett specifikt projektId
+    
         public void DeleteUserInProject(int projectId)
         {
             var UserInProjects = db.usersInProjects.Where(row => row.ProjectId == projectId);

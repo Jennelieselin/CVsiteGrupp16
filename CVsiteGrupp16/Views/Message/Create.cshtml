@@ -1,4 +1,5 @@
-﻿@model Shared.Models.MessageModel
+﻿@using CVsiteGrupp16.Controllers
+@model Shared.Models.MessageModel
 
 @{
     ViewBag.Title = "Skicka meddelande";
@@ -6,7 +7,9 @@
 
 <h2>Skicka meddelande</h2>
 
-@using (Html.BeginForm(null, null, new { @id = string.Empty }, FormMethod.Post, new { @id = "MessageForm" }))
+@*@using (Html.BeginForm(null, null, new { @id = string.Empty }, FormMethod.Post, new { @id = "MessageForm" }))*@
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new {@id = "MessageForm"}))
 {
     @Html.AntiForgeryToken()
 
@@ -79,11 +82,12 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
-        $('#createMessage').click(function () {
+        $('#createMessage').click(function (e) {
+            e.preventDefault();
             var data = $('#MessageForm').serialize();
            // if (!window.confirm('Vill du skicka ett meddelande ?' + data)) return;
             $.ajax({
-                url: '/api/message/CreateMessage',
+                url: '/api/message/create',
                 method: 'POST',
                 data: data,
                 success: function () {
@@ -91,7 +95,7 @@
                     window.location.reload();
                 },
                 error: function () {
-                    window.alert('Kunde inte skicka meddelandet' + data);
+                    window.alert('Kunde inte skicka meddelandet');
                 }
             });
         })

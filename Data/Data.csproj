@@ -80,9 +80,9 @@
     <Compile Include="Contexts\MessageDbContext.cs" />
     <Compile Include="Contexts\ProjectDbContext.cs" />
     <Compile Include="Contexts\UsersProjectDbContext.cs" />
-    <Compile Include="Migrations\202201081012251_funkaNu.cs" />
-    <Compile Include="Migrations\202201081012251_funkaNu.designer.cs">
-      <DependentUpon>202201081012251_funkaNu.cs</DependentUpon>
+    <Compile Include="Migrations\202201101334069_ny.cs" />
+    <Compile Include="Migrations\202201101334069_ny.designer.cs">
+      <DependentUpon>202201101334069_ny.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUserProject.cs" />
@@ -105,8 +105,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201081012251_funkaNu.resx">
-      <DependentUpon>202201081012251_funkaNu.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201101334069_ny.resx">
+      <DependentUpon>202201101334069_ny.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -33,7 +33,7 @@ namespace Services
                             Läst = model.Läst,
                             Content = model.Content,
                             //UserName = "xxx"
-                            Mottagare = model.Mottagare
+                            UserName = model.Mottagare
                         };
 
 

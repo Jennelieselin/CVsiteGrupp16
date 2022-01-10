@@ -49,7 +49,7 @@ namespace Data.Repositories
 
         public int UnreadMessages(string mottagare)
         {
-            var list = _context.messages.Where(x => x.Läst == false && x.Mottagare == mottagare).ToList();
+            var list = _context.messages.Where(x => x.Läst == false && x.UserName == mottagare).ToList();
             return list.Count;
         }
     }

@@ -15,7 +15,7 @@ using System.Web.Http;
 
 namespace CVsiteGrupp16.Controllers
 {
-    [System.Web.Http.RoutePrefix("api/message")]
+    //[System.Web.Http.RoutePrefix("api/message")]
     public class MessageAPIController : ApiController
     {
         MessageService messageService = new MessageService();
@@ -81,7 +81,7 @@ namespace CVsiteGrupp16.Controllers
 
 
         [System.Web.Http.HttpPost]
-        [System.Web.Http.Route("CreateMessage")]
+        [System.Web.Http.Route("api/message/create")]
         public IHttpActionResult CreateMessage(MessageModel model)
         {
             var avsändare = "";

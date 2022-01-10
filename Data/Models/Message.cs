@@ -20,7 +20,7 @@ namespace Data.Models
         public bool Läst { get; set; }
         [Display(Name ="Meddelande")]
         public string Content { get; set; }
-        public string Mottagare { get; set; }
+        public string UserName { get; set; }
 
 
     }

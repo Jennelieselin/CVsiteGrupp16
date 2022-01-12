@@ -2,7 +2,7 @@
 
 <div class="jumbotron">
     <h2>Senaste inlagda projektet:</h2>
-    <h2> @Html.DisplayFor(model => model.ProjektNamn) </h2>
-    <h3 class="lead"> @Html.DisplayFor(model => model.ProjektBeskrivning) </h3>
+    <h2>Namn på projekt: @Html.DisplayFor(model => model.ProjektNamn) </h2>
+    <h3 class="lead"> Beskrivning: @Html.DisplayFor(model => model.ProjektBeskrivning) </h3>
     <p>@Html.ActionLink("Klicka här för att läsa mer om projektet", "MainIndex", "Project", new { searchString = Model.ProjektNamn }, null) </p>
 </div>

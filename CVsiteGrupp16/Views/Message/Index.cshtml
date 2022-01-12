@@ -10,6 +10,57 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Läst)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avsändare)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.UserName == User.Identity.Name)
+        {
+    <tr>
+        <td>
+            @if (item.Läst == true)
+                    {
+            <input type="checkbox" data-id="@item.Id" checked />
+                    }
+                    else
+                    {
+            <input type="checkbox" data-id="@item.Id" />
+                    }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Avsändare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.ActionLink("Ta bort", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+        }
+
+    }
+
+
+</table>
+
+@*<table class="table">
+    <tr>
+        <th>
             @Html.DisplayNameFor(model => model.Avsändare)
         </th>
         <th>
@@ -67,7 +118,7 @@
         }
     }
 
-</table>
+</table>*@
 
 
 @section scripts{
